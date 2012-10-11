@@ -152,5 +152,22 @@ namespace Vulcan.Uczniowie.HelpProvider
         [DllImport( "user32.dll", ExactSpelling = true, CharSet = CharSet.Auto )]
         public static extern IntPtr GetParent( IntPtr hWnd );
         #endregion
+
+        public bool FoundHelpMapping
+        {
+            get { return ResourceHelper.HelpDescription.TopicDescription.Count > 0; }
+        }
+
+        public string HelpFilePath
+        {
+            get
+            {
+                if (!FoundHelpMapping)
+                {
+                    return "";
+                }
+                return ResourceHelper.HelpDescription.HelpFilePath;
+            }
+        }
     }
 }
