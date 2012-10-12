@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -12,6 +13,9 @@ namespace Vulcan.Uczniowie.HelpProvider
     {
         #region Konstrukcja, sk³adowe
         private HelpEditor() { }
+
+        private readonly GraphicalOverlay _overlay = new GraphicalOverlay();
+
         public HelpEditor( Control Control )
         {
             InitializeComponent();
@@ -19,6 +23,13 @@ namespace Vulcan.Uczniowie.HelpProvider
             InitializeControls();
             InitializePath();
             InitializeTreeForControl( Control );
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs args)
+        {
+            _overlay.Paint -= OnGraphicalOverlayPaint;
+            _overlay.Unwire();
+            base.OnFormClosing(args);
         }
 
         private void InitializeControls()
@@ -243,23 +254,36 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         private void tvNodes_Click( object sender, EventArgs e )
         {
-            if ( tvNodes.SelectedNode != null &&
-                 tvNodes.SelectedNode.Tag is Control
-                )
+            if ( tvNodes.SelectedNode != null && tvNodes.SelectedNode.Tag is Control)
             {
                 gbProperties.Enabled = true;
-                InitializeDescriptionForControl( tvNodes.SelectedNode.Tag as Control );
+                InitializeDescriptionForControl(tvNodes.SelectedNode.Tag as Control);
             }
             else
                 gbProperties.Enabled = false;
         }
 
+        private void OnGraphicalOverlayPaint(object sender, PaintEventArgs e)
+        {
+                var coordinates = ((Control) tvNodes.SelectedNode.Tag).Coordinates();
+                using (Pen pen = new Pen(Color.Red, 5))
+                    e.Graphics.DrawRectangle(pen, coordinates);
+        }
+
         private void tvNodes_AfterSelect( object sender, TreeViewEventArgs e )
         {
-            if ( e.Node != null &&
-                 e.Node.Tag is Control
-                )
+            if ( e.Node != null && e.Node.Tag is Control)
             {
+                //sometimes the focus seems to get left behind on a control that is not parented by the form anymore
+                if (_overlay.Owner == null && tvNodes.TopNode.Tag is Form)
+                {
+                    _overlay.Owner = (Form) tvNodes.TopNode.Tag;
+                    _overlay.Paint += OnGraphicalOverlayPaint;
+                }
+                if (_overlay.Owner != null)
+                {
+                    _overlay.Owner.Refresh();
+                }
                 gbProperties.Enabled = true;
                 InitializeDescriptionForControl( e.Node.Tag as Control );
             }

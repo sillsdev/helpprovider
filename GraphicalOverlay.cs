@@ -1,26 +1,17 @@
-﻿namespace CodeProject
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+
+namespace Vulcan.Uczniowie.HelpProvider
 {
     using System;
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public partial class GraphicalOverlay : Component
+    public class GraphicalOverlay
     {
         public event EventHandler<PaintEventArgs> Paint;
         private Form form;
-
-        public GraphicalOverlay()
-        {
-            InitializeComponent();
-        }
-
-        public GraphicalOverlay(IContainer container)
-        {
-            container.Add(this);
-
-            InitializeComponent();
-        }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Form Owner
@@ -52,15 +43,32 @@
             form.Invalidate(true);
         }
 
+        private readonly List<Control> _monitoredControls = new List<Control>();
+
+        public void Unwire()
+        {
+            foreach (var monitoredControl in _monitoredControls)
+            {
+                monitoredControl.Paint -= Control_Paint;
+                monitoredControl.ControlAdded -= Control_ControlAdded;
+            }
+            if (Owner != null)
+            {
+                Owner.Refresh();
+            }
+            form = null;
+        }
+
         private void ConnectPaintEventHandlers(Control control)
         {
+            _monitoredControls.Add(control);
             // Connect the paint event handler for this control.
             // Remove the existing handler first (if one exists) and replace it.
-            control.Paint -= new PaintEventHandler(Control_Paint);
-            control.Paint += new PaintEventHandler(Control_Paint);
+            control.Paint -= Control_Paint;
+            control.Paint += Control_Paint;
 
-            control.ControlAdded -= new ControlEventHandler(Control_ControlAdded);
-            control.ControlAdded += new ControlEventHandler(Control_ControlAdded);
+            control.ControlAdded -= Control_ControlAdded;
+            control.ControlAdded += Control_ControlAdded;
 
             // Recurse the hierarchy.
             foreach (Control child in control.Controls)
