@@ -350,6 +350,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.btAddContext.TabIndex = 11;
             this.btAddContext.Text = "Add";
             this.btAddContext.UseVisualStyleBackColor = true;
+            this.btAddContext.Click += new System.EventHandler(this.btAddContext_Click);
             // 
             // btRemoveContext
             // 
@@ -360,6 +361,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.btRemoveContext.TabIndex = 12;
             this.btRemoveContext.Text = "Remove";
             this.btRemoveContext.UseVisualStyleBackColor = true;
+            this.btRemoveContext.Click += new System.EventHandler(this.btRemoveContext_Click);
             // 
             // HelpEditor
             // 
