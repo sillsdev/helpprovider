@@ -30,7 +30,6 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpEditor));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtHelpFile = new System.Windows.Forms.TextBox();
             this.tvNodes = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.cbNavigator = new System.Windows.Forms.ComboBox();
@@ -53,6 +52,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btAddContext = new System.Windows.Forms.Button();
             this.btRemoveContext = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbProperties.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -67,20 +67,13 @@ namespace Vulcan.Uczniowie.HelpProvider
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(77, 27);
             this.label1.TabIndex = 1;
             this.label1.Text = "Help file name:";
-            // 
-            // txtHelpFile
-            // 
-            this.txtHelpFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtHelpFile.Location = new System.Drawing.Point(86, 3);
-            this.txtHelpFile.Name = "txtHelpFile";
-            this.txtHelpFile.Size = new System.Drawing.Size(574, 20);
-            this.txtHelpFile.TabIndex = 2;
-            this.txtHelpFile.Validated += new System.EventHandler(this.txtHelpFile_Validated);
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tvNodes
             // 
@@ -89,7 +82,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tvNodes.HideSelection = false;
             this.tvNodes.Location = new System.Drawing.Point(3, 16);
             this.tvNodes.Name = "tvNodes";
-            this.tvNodes.Size = new System.Drawing.Size(437, 234);
+            this.tvNodes.Size = new System.Drawing.Size(437, 233);
             this.tvNodes.TabIndex = 3;
             this.tvNodes.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvNodes_AfterSelect);
             this.tvNodes.Click += new System.EventHandler(this.tvNodes_Click);
@@ -182,7 +175,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.lstContext.FullRowSelect = true;
             this.lstContext.Location = new System.Drawing.Point(3, 16);
             this.lstContext.Name = "lstContext";
-            this.lstContext.Size = new System.Drawing.Size(202, 199);
+            this.lstContext.Size = new System.Drawing.Size(202, 198);
             this.lstContext.TabIndex = 9;
             this.lstContext.UseCompatibleStateImageBehavior = false;
             this.lstContext.View = System.Windows.Forms.View.Details;
@@ -269,13 +262,13 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.txtHelpFile, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(663, 26);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(663, 27);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -286,11 +279,11 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 35);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 36);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(663, 259);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(663, 258);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -305,7 +298,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(443, 253);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(443, 252);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -322,7 +315,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(208, 253);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(208, 252);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -334,7 +327,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.tableLayoutPanel6.Controls.Add(this.btAddContext, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btRemoveContext, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 221);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 220);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -362,6 +355,15 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.btRemoveContext.Text = "Remove";
             this.btRemoveContext.UseVisualStyleBackColor = true;
             this.btRemoveContext.Click += new System.EventHandler(this.btRemoveContext_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(86, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(574, 21);
+            this.comboBox1.TabIndex = 2;
             // 
             // HelpEditor
             // 
@@ -397,7 +399,6 @@ namespace Vulcan.Uczniowie.HelpProvider
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtHelpFile;
         private System.Windows.Forms.TreeView tvNodes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -420,5 +421,6 @@ namespace Vulcan.Uczniowie.HelpProvider
         private System.Windows.Forms.GroupBox gbProperties;
         private System.Windows.Forms.Button btAddContext;
         private System.Windows.Forms.Button btRemoveContext;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

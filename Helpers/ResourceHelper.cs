@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
@@ -12,50 +13,58 @@ namespace Vulcan.Uczniowie.HelpProvider
     public class ResourceHelper
     {
         #region Zasób z informacj¹ o helpie - klient
-        private static HelpDescription helpDescription;
+        private static HelpDescriptions _helpDescriptions;
         /// <summary>
         /// Kolejnoœæ ³adowania opisu:
         /// 
         /// 1. plik w zasobach aplikacji
         /// 2. plik przy execu aplikacji
         /// </summary>
-        public static HelpDescription HelpDescription
+        public static HelpDescriptions HelpDescriptions
         {
             get
             {
-                if ( helpDescription == null )
+                if ( _helpDescriptions == null )
                 {
-                    helpDescription = HelpDescription.Empty;
-
-                    try
-                    {
-                        Stream stream = null;
-                        // próbuj z pliku przy aplikacji
-                        try
-                        {
-                            stream = File.Open( PathHelper.ClientLocalHelpFilePath, FileMode.Open );
-                        }
-                        catch { }
-                        // próbuj z zasobów
-                        if ( stream == null )
-                            stream = ResourceHelper.GetApplicationStream( PathHelper.BareFile );
-
-                        // serializer
-                        XmlSerializer xs = new XmlSerializer( typeof( HelpDescription ) );
-
-                        if ( stream != null )
-                        {
-                            helpDescription = (HelpDescription)xs.Deserialize( stream );
-                            stream.Dispose();
-                        }
-                    }
-                    catch { }
+                    var primaryHelpMapping = LoadHelpDescriptionFromFile(PathHelper.PrimaryHelpMappingPath);
+                    var otherHelpMappings = new List<HelpDescription>(PathHelper.OtherHelpMappingPaths.Select(o=>LoadHelpDescriptionFromFile(o)));
+                    _helpDescriptions = new HelpDescriptions(primaryHelpMapping, otherHelpMappings);
                 }
-
-                return helpDescription;
+                return _helpDescriptions;
             }
         }
         #endregion
+
+        private static HelpDescription LoadHelpDescriptionFromFile(string pathToFileToLoad)
+        {
+
+            var helpDescription = HelpDescription.Empty;
+
+            try
+            {
+                Stream stream = null;
+                // próbuj z pliku przy aplikacji
+                try
+                {
+                    stream = File.Open(PathHelper.ClientLocalHelpFilePath, FileMode.Open);
+                }
+                catch { }
+                // próbuj z zasobów
+                if (stream == null)
+                    stream = ResourceHelper.GetApplicationStream(PathHelper.BareFile);
+
+                // serializer
+                XmlSerializer xs = new XmlSerializer(typeof(HelpDescription));
+
+                if (stream != null)
+                {
+                    helpDescription = (HelpDescription)xs.Deserialize(stream);
+                    stream.Dispose();
+                }
+            }
+            catch { }
+            return helpDescription;
+        }
 
         #region Zasób z informacj¹ o helpie - builder
         public static void SaveHelpDescription( HelpDescription HelpDescription )
@@ -73,7 +82,7 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         #region Zasoby
         static List<string> examinedAssemblies = new List<string>();
-        public static Stream GetApplicationStream( string ResourceName )
+        private static Stream GetApplicationStream( string ResourceName )
         {
             examinedAssemblies.Clear();
             return GetResource( Assembly.GetEntryAssembly(), ResourceName );

@@ -130,48 +130,6 @@ namespace Vulcan.Uczniowie.HelpProvider
             return null;
         }
 
-        /// <summary>
-        /// Maj¹c ju¿ w rêku zagadnienie z pomocy dla zadanej kontrolki nale¿y
-        /// w ³añcuchu dziedziczenia kontrolek znaleŸæ tê dla której znaleziono temat pomocy
-        /// </summary>
-        /// <param name="ChildControl"></param>
-        /// <param name="HelpDescription"></param>
-        /// <returns></returns>
-        public Control FindParentControlForHelpDescription( Control ChildControl, ControlHelpDescription HelpDescription )
-        {
-            if ( HelpDescription != null )
-            {
-                List<Control> ControlsChain = ControlHelper.GetControlTree( ChildControl );
-                foreach ( Control AControl in ControlsChain )
-                    if ( ControlHelper.GetControlShortID( AControl ) == HelpDescription.Name )
-                        return AControl;
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Maj¹c ju¿ zagadnienie pomocy, funkcja ta pozwala znaleŸæ dok³adniejszy kontekst wi¹zania
-        /// jeœli taki wystêpuje
-        /// </summary>
-        /// <param name="Control"></param>
-        /// <param name="HelpDescription"></param>
-        /// <returns></returns>
-        public BindingContextHelpDescription FindExactBindingContext( Control Control, ControlHelpDescription HelpDescription )
-        {
-            string[] ControlContext = ControlHelper.GetBindingContext( Control );
-
-            if ( HelpDescription != null &&
-                 ControlContext.Length > 0
-                )
-                foreach ( string ControlContextContent in ControlContext )
-                    foreach ( BindingContextHelpDescription bc in HelpDescription.BindingContext )
-                        if ( bc.ContextName == ControlContextContent )
-                            return bc;
-
-            return null;
-        }
-
         public static HelpDescription Empty
         {
             get

@@ -155,7 +155,7 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public bool FoundHelpMapping
         {
-            get { return ResourceHelper.HelpDescription.TopicDescription.Count > 0; }
+            get { return ResourceHelper.HelpDescriptions.TopicDescription.Count > 0; }
         }
 
         public string HelpFilePath
@@ -166,8 +166,13 @@ namespace Vulcan.Uczniowie.HelpProvider
                 {
                     return "";
                 }
-                return ResourceHelper.HelpDescription.HelpFilePath;
+                return ResourceHelper.HelpDescriptions.HelpFilePath;
             }
+        }
+
+        public void RegisterHelpFileMapping(string helpFileMapping)
+        {
+
         }
     }
 }

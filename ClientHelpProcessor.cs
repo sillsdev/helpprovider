@@ -17,28 +17,28 @@ namespace Vulcan.Uczniowie.HelpProvider
             string ControlId = ControlHelper.GetControlID( Control );
             string[] ControlIdParts = ControlHelper.GetControlIDPath( ControlId );
 
-            if ( ResourceHelper.HelpDescription != HelpDescription.Empty )
+            if ( !ResourceHelper.HelpDescriptions.IsEmpty )
             {
                 // zagadnienie pomocy
-                ControlHelpDescription TopicDescription = ResourceHelper.HelpDescription.FindDescription( ControlIdParts );
+                ControlHelpDescription TopicDescription = ResourceHelper.HelpDescriptions.FindDescription( ControlIdParts );
                 // kontrolka, której to zagadnienie dotyczy
-                Control HelpControl = ResourceHelper.HelpDescription.FindParentControlForHelpDescription( Control, TopicDescription );
+                Control HelpControl = ResourceHelper.HelpDescriptions.FindParentControlForHelpDescription( Control, TopicDescription );
 
                 if ( TopicDescription != null )
                 {
                     /* a mo¿e jest œciœlejszy kontekst dla kontrolki dla której znaleziono temat pomocy? */
-                    BindingContextHelpDescription Bc = ResourceHelper.HelpDescription.FindExactBindingContext( HelpControl, TopicDescription );
+                    BindingContextHelpDescription Bc = ResourceHelper.HelpDescriptions.FindExactBindingContext( HelpControl, TopicDescription );
                     if (  Bc != null && 
                          !string.IsNullOrEmpty( Bc.HelpKeyword ) &&
                           Bc.ShowHelp )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescription.HelpFilePath, Bc.HelpNavigator, Bc.HelpKeyword );
+                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath, Bc.HelpNavigator, Bc.HelpKeyword );
                     else
                     if ( TopicDescription.ShowHelp )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescription.HelpFilePath, TopicDescription.HelpNavigator, TopicDescription.HelpKeyword );
+                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath, TopicDescription.HelpNavigator, TopicDescription.HelpKeyword );
                 }
                 else
-                    if ( !string.IsNullOrEmpty ( ResourceHelper.HelpDescription.HelpFile ) )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescription.HelpFilePath );
+                    if ( !string.IsNullOrEmpty ( ResourceHelper.HelpDescriptions.HelpFile ) )
+                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath );
             }
         }
         #endregion

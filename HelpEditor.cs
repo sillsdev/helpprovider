@@ -39,7 +39,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             cbNavigator.SelectedItem = HelpNavigator.Topic;
         }
 
-        private HelpDescription HelpDescription = ResourceHelper.HelpDescription;
+        private HelpDescription HelpDescription = ResourceHelper.HelpDescriptions;
         #endregion
 
         #region Logika
