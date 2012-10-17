@@ -19,10 +19,10 @@ namespace Vulcan.Uczniowie.HelpProvider
             _otherDescriptions.AddRange(otherHelpMappings);
         }
 
-        //public bool IsEmpty
-        //{
-        //    get { return _primaryHelpDescription.TopicDescription.Count == 0 && _otherDescriptions.Count == 0; }
-        //}
+        public bool IsEmpty
+        {
+            get { return _primaryHelpDescription.TopicDescription.Count == 0 && _otherDescriptions.Count == 0; }
+        }
 
         public string PrimaryHelpFile
         {
