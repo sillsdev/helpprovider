@@ -10,22 +10,70 @@ namespace Vulcan.Uczniowie.HelpProvider
 {
     public class HelpDescriptions
     {
-        private HelpDescription _primaryHelpDescription;
-        private List<HelpDescription> _otherDescriptions = new List<HelpDescription>();
+        private readonly HelpDescription _primaryHelpDescription;
+        private readonly List<HelpDescription> _otherDescriptions = new List<HelpDescription>();
 
         public HelpDescriptions(HelpDescription primaryHelpDescription, IEnumerable<HelpDescription> otherHelpMappings)
         {
             _primaryHelpDescription = primaryHelpDescription;
+            _otherDescriptions.AddRange(otherHelpMappings);
         }
 
-        public bool IsEmpty
+        //public bool IsEmpty
+        //{
+        //    get { return _primaryHelpDescription.TopicDescription.Count == 0 && _otherDescriptions.Count == 0; }
+        //}
+
+        public string PrimaryHelpFile
         {
-            get { return _primaryHelpDescription == null && _otherDescriptions.Count == 0; }
+            get { return _primaryHelpDescription.HelpFile; }
+            set { _primaryHelpDescription.HelpFile = value; }
+        }
+
+        public string PrimaryHelpFilePath
+        {
+            get { return _primaryHelpDescription.HelpFilePath; }
+        }
+
+        public bool FoundHelpMapping
+        {
+            get 
+            { 
+                return _primaryHelpDescription.TopicDescription.Count > 0 || _otherDescriptions.Any(o=>o.TopicDescription.Count > 0);
+            }
+        }
+
+        public IEnumerable<string> AllHelpFilePaths
+        {
+            get { return new[]{_primaryHelpDescription}.Concat(_otherDescriptions).Select(hd=>hd.HelpFilePath); }
         }
 
         public ControlHelpDescription CreateExactDescriptionForHelpFile(Control Control)
         {
             return _primaryHelpDescription.CreateExactDescription(Control);
+        }
+
+        /// <summary>
+        /// Funkcja wyszukuje dok³adny obiekt wi¹¿¹cy formant z zagadnieniem pomocy
+        /// </summary>
+        /// <param name="Control"></param>
+        /// <returns></returns>
+        public ControlHelpDescription FindExactDescription(Control Control)
+        {
+            //Always prefer descriptions found in the primary helpdescription, otherwise just grab the first description if there even is one
+            var description = _primaryHelpDescription.FindExactDescription(Control);
+            if (description == null || String.IsNullOrEmpty(description.HelpKeyword))
+            {
+                foreach (var otherDescription in _otherDescriptions)
+                {
+                    description = otherDescription.FindExactDescription(Control);
+                    if (description != null)
+                    {
+                        break;
+                    }
+                }
+            }
+            return description;
         }
 
         public ControlHelpDescription FindDescription(string[] controlIdParts)
@@ -86,6 +134,45 @@ namespace Vulcan.Uczniowie.HelpProvider
                             return bc;
 
             return null;
+        }
+
+        public string HelpFilePathForControl(Control Control)
+        {
+            //Always prefer the primary help file, otherwise just grab the first help file that maps the control if there even is one.
+            if(_primaryHelpDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+            {
+                return _primaryHelpDescription.HelpFilePath;
+            }
+            foreach (var otherDescription in _otherDescriptions)
+            {
+                if (otherDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+                {
+                    return otherDescription.HelpFilePath;
+                }
+            }
+            return "";
+        }
+
+        public string HelpFileForControl(Control Control)
+        {
+            //Always prefer the primary help file, otherwise just grab the first help file that maps the control if there even is one.
+            if (_primaryHelpDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+            {
+                return _primaryHelpDescription.HelpFile;
+            }
+            foreach (var otherDescription in _otherDescriptions)
+            {
+                if (otherDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+                {
+                    return otherDescription.HelpFile;
+                }
+            }
+            return "";
+        }
+
+        public ControlHelpDescription CreateExactDescription(Control control)
+        {
+            return _primaryHelpDescription.CreateExactDescription(control);
         }
     }
 }

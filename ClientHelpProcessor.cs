@@ -31,14 +31,14 @@ namespace Vulcan.Uczniowie.HelpProvider
                     if (  Bc != null && 
                          !string.IsNullOrEmpty( Bc.HelpKeyword ) &&
                           Bc.ShowHelp )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath, Bc.HelpNavigator, Bc.HelpKeyword );
+                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), Bc.HelpNavigator, Bc.HelpKeyword );
                     else
                     if ( TopicDescription.ShowHelp )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath, TopicDescription.HelpNavigator, TopicDescription.HelpKeyword );
+                        Help.ShowHelp(Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), TopicDescription.HelpNavigator, TopicDescription.HelpKeyword);
                 }
                 else
-                    if ( !string.IsNullOrEmpty ( ResourceHelper.HelpDescriptions.HelpFile ) )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePath );
+                    if ( !string.IsNullOrEmpty ( ResourceHelper.HelpDescriptions.PrimaryHelpFile ) )
+                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.PrimaryHelpFilePath );
             }
         }
         #endregion

@@ -155,24 +155,35 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public bool FoundHelpMapping
         {
-            get { return ResourceHelper.HelpDescriptions.TopicDescription.Count > 0; }
+            get { return ResourceHelper.HelpDescriptions.FoundHelpMapping; }
         }
 
-        public string HelpFilePath
+        public IEnumerable<string> HelpFilePaths
         {
             get
             {
                 if (!FoundHelpMapping)
                 {
-                    return "";
+                    return new List<string>();
                 }
-                return ResourceHelper.HelpDescriptions.HelpFilePath;
+                return ResourceHelper.HelpDescriptions.AllHelpFilePaths;
             }
         }
 
-        public void RegisterHelpFileMapping(string helpFileMapping)
+        public void RegisterSecondaryHelpMapping(string helpFileMapping)
         {
+            PathHelper.RegisterSecondaryHelpMapping(helpFileMapping);
+        }
 
+        public void RegisterPrimaryHelpFileMapping(string helpFileMapping)
+        {
+            if (ResourceHelper.PrimaryHelpMapAlreadyLoaded)
+            {
+                throw new ArgumentException(String.Format(
+                    "A primary mapping named {0} has already been loaded either from as embedded resource file or from: {1}", 
+                    ResourceHelper.HelpDescriptions.PrimaryHelpFile, ResourceHelper.HelpDescriptions.PrimaryHelpFilePath));
+            }
+            PathHelper.RegisterPrimaryHelpMapping(helpFileMapping);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             get
             {
-                return Path.Combine( Application.StartupPath, HelpFile );
+                return Path.Combine( PathHelper.DefaultHelpfileFolder, HelpFile );
             }
         }
         #endregion

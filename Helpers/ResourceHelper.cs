@@ -10,10 +10,11 @@ using System.Xml.Serialization;
 
 namespace Vulcan.Uczniowie.HelpProvider
 {
-    public class ResourceHelper
+    public static class ResourceHelper
     {
         #region Zasób z informacj¹ o helpie - klient
         private static HelpDescriptions _helpDescriptions;
+        private static HelpDescription _primaryHelpDescription;
         /// <summary>
         /// Kolejnoœæ ³adowania opisu:
         /// 
@@ -24,18 +25,24 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             get
             {
-                if ( _helpDescriptions == null )
+                if ( _helpDescriptions == null)
                 {
-                    var primaryHelpMapping = LoadHelpDescriptionFromFile(PathHelper.PrimaryHelpMappingPath);
-                    var otherHelpMappings = new List<HelpDescription>(PathHelper.OtherHelpMappingPaths.Select(o=>LoadHelpDescriptionFromFile(o)));
-                    _helpDescriptions = new HelpDescriptions(primaryHelpMapping, otherHelpMappings);
+                    _primaryHelpDescription = LoadHelpDescriptionFromFile(PathHelper.PrimaryHelpMapping);
+                    var otherHelpMappings = new List<HelpDescription>(PathHelper.SecondaryHelpMappings.Select(o=>LoadHelpDescriptionFromFile(o)));
+                    _helpDescriptions = new HelpDescriptions(_primaryHelpDescription, otherHelpMappings);
                 }
                 return _helpDescriptions;
             }
         }
+
+        public static bool PrimaryHelpMapAlreadyLoaded
+        {
+            get { return _primaryHelpDescription != null; }
+        }
+
         #endregion
 
-        private static HelpDescription LoadHelpDescriptionFromFile(string pathToFileToLoad)
+        private static HelpDescription LoadHelpDescriptionFromFile(string fileToLoad)
         {
 
             var helpDescription = HelpDescription.Empty;
@@ -46,12 +53,12 @@ namespace Vulcan.Uczniowie.HelpProvider
                 // próbuj z pliku przy aplikacji
                 try
                 {
-                    stream = File.Open(PathHelper.ClientLocalHelpFilePath, FileMode.Open);
+                    stream = File.Open(Path.Combine(PathHelper.DefaultMappingFolder, fileToLoad), FileMode.Open);
                 }
                 catch { }
                 // próbuj z zasobów
                 if (stream == null)
-                    stream = ResourceHelper.GetApplicationStream(PathHelper.BareFile);
+                    stream = GetApplicationStream(fileToLoad);
 
                 // serializer
                 XmlSerializer xs = new XmlSerializer(typeof(HelpDescription));
@@ -67,14 +74,14 @@ namespace Vulcan.Uczniowie.HelpProvider
         }
 
         #region Zasób z informacj¹ o helpie - builder
-        public static void SaveHelpDescription( HelpDescription HelpDescription )
+        public static void SaveHelpDescription()
         {
-            if ( HelpDescription != null )
+            if ( HelpDescriptions != null )
             {
-                using ( FileStream fs = File.Create( PathHelper.ClientLocalHelpFilePath ) )
+                using ( FileStream fs = File.Create( PathHelper.WritableHelpmappingPath ) )
                 {
                     XmlSerializer xs = new XmlSerializer( typeof( HelpDescription ) );
-                    xs.Serialize( fs, HelpDescription );
+                    xs.Serialize(fs, _primaryHelpDescription);
                 }
             }
         }

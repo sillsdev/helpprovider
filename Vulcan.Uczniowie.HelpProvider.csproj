@@ -87,6 +87,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SelectHelpfileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectHelpfileDialog.Designer.cs">
+      <DependentUpon>SelectHelpfileDialog.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +104,9 @@
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectHelpfileDialog.resx">
+      <DependentUpon>SelectHelpfileDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

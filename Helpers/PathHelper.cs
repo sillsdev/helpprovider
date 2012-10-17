@@ -1,54 +1,74 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Vulcan.Uczniowie.HelpProvider
 {
-    public class PathHelper
+    public static class PathHelper
     {
-        private static readonly List<string> _otherHelpFileMappings = new List<string>();
+        private static readonly List<string> _secondaryHelpFileMappings = new List<string>();
         private static string _primaryHelpFileMapping;
 
         #region Œcie¿ki
-        public static string BareFile
+        private static string FallBackFile
         {
             get
             {
-                return "help.mapping";
+                return "default.helpmap";
             }
         }
 
-        public static string ClientLocalHelpFilePath
+        public static bool HelpFileExists(string helpFileName)
+        {
+            return File.Exists(Path.Combine(DefaultHelpfileFolder, helpFileName));
+        }
+
+        public static string DefaultHelpfileFolder
+        {
+            get { return Application.StartupPath; }
+        }
+
+        public static string PrimaryHelpMapping
         {
             get
             {
-                return Path.Combine( Application.StartupPath, BareFile );
-            }
-        }
-
-        public static string PrimaryHelpMappingPath
-        {
-            get { return _primaryHelpFileMapping; } 
-            set 
-            { 
-                if(_primaryHelpFileMapping != null)
+                if(String.IsNullOrEmpty(_primaryHelpFileMapping))
                 {
-                    throw new ArgumentException("The primary mapping should only ever be set once.");
+                    return FallBackFile;
                 }
-                _primaryHelpFileMapping = value;
+                return _primaryHelpFileMapping;
             }
         }
 
-        public static IEnumerable<string> OtherHelpMappingPaths
+        public static IEnumerable<string> SecondaryHelpMappings
         {
-            get { return _otherHelpFileMappings; }
+            get { return _secondaryHelpFileMappings; }
         }
 
-        public void RegisterHelpmappingPath(string path)
+        public static string WritableHelpmappingPath
         {
-            _otherHelpFileMappings.Add(path);
+            get
+            {
+                return Path.Combine(DefaultMappingFolder, PrimaryHelpMapping);
+            }
+        }
+
+        public static string DefaultMappingFolder
+        {
+            get { return System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); }
+        }
+
+        public static void RegisterSecondaryHelpMapping(string path)
+        {
+            _secondaryHelpFileMappings.Add(path);
+        }
+
+        public static void RegisterPrimaryHelpMapping(string path)
+        { 
+                _primaryHelpFileMapping = path;
         }
 
         #endregion

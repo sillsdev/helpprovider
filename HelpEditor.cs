@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,10 +21,30 @@ namespace Vulcan.Uczniowie.HelpProvider
         public HelpEditor( Control Control )
         {
             InitializeComponent();
-
+            GetHelpfileToUseIfNecessary();
             InitializeControls();
             InitializePath();
             InitializeTreeForControl( Control );
+        }
+
+        private void GetHelpfileToUseIfNecessary()
+        {
+            if (String.IsNullOrEmpty(ResourceHelper.HelpDescriptions.PrimaryHelpFile))
+            {
+                using (var deleteDialog = new SelectHelpfileDialog())
+                {
+                    var dialogResult = deleteDialog.ShowDialog();
+
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        ResourceHelper.HelpDescriptions.PrimaryHelpFile = deleteDialog.SelectedHelpFile;
+                    }
+                    else
+                    {
+                        Close();
+                    }
+                }
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs args)
@@ -37,15 +59,15 @@ namespace Vulcan.Uczniowie.HelpProvider
             foreach ( HelpNavigator v in Enum.GetValues( typeof( HelpNavigator ) ) )
                 cbNavigator.Items.Add( v );
             cbNavigator.SelectedItem = HelpNavigator.Topic;
+            
+            //once a helpmap is assigned a helpfile it can not be changed.
+            _helpfileNameLabel.Text = ResourceHelper.HelpDescriptions.PrimaryHelpFile;
         }
-
-        private HelpDescription HelpDescription = ResourceHelper.HelpDescriptions;
         #endregion
 
         #region Logika
         private void InitializePath()
         {
-            txtHelpFile.Text = HelpDescription.HelpFile;
         }
 
         private void InitializeTreeForControl( Control Control )
@@ -78,13 +100,15 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             if ( Node.Tag is Control )
             {
-                ControlHelpDescription ExactDescription = HelpDescription.FindExactDescription( Node.Tag as Control );
+                ControlHelpDescription ExactDescription = HelpDescriptions.FindExactDescription( Node.Tag as Control );
                 Node.ForeColor =
                     ExactDescription == null ||
                     string.IsNullOrEmpty( ExactDescription.HelpKeyword ) ?
                     Color.Red : SystemColors.WindowText;
             }
         }
+
+        private HelpDescriptions HelpDescriptions = ResourceHelper.HelpDescriptions;
 
         private void InitializeDescriptionForContext( BindingContextHelpDescription ContextHelpDescription )
         {
@@ -96,15 +120,22 @@ namespace Vulcan.Uczniowie.HelpProvider
         private void InitializeDescriptionForControl( Control Control )
         {
             /* opis w³aœciwoœci formantu */
-            ControlHelpDescription Description = HelpDescription.FindExactDescription( Control );
+            ControlHelpDescription Description = HelpDescriptions.FindExactDescription( Control );
             if ( Description != null )
             {
+                _helpfileNameLabel.Text = HelpDescriptions.HelpFileForControl(Control);
+                gbProperties.Enabled = true;
+                if (HelpDescriptions.HelpFileForControl(Control)!= HelpDescriptions.PrimaryHelpFile)
+                {
+                    gbProperties.Enabled = false;
+                }
                 txtCategory.Text = Description.HelpKeyword;
                 cbNavigator.SelectedItem = Description.HelpNavigator;
                 cbShowHelp.Checked = Description.ShowHelp;
             }
             else
             {
+                _helpfileNameLabel.Text = HelpDescriptions.PrimaryHelpFile;
                 txtCategory.Text = string.Empty;
                 cbNavigator.SelectedItem = HelpNavigator.Topic;
                 cbShowHelp.Checked = true;
@@ -135,11 +166,6 @@ namespace Vulcan.Uczniowie.HelpProvider
         #endregion
 
         #region  Obs³uga logiki formantów
-
-        private void txtHelpFile_Validated( object sender, EventArgs e )
-        {
-            HelpDescription.HelpFile = txtHelpFile.Text;
-        }
 
         private void txtCategory_Validated( object sender, EventArgs e )
         {
@@ -196,7 +222,7 @@ namespace Vulcan.Uczniowie.HelpProvider
                 if ( tvNodes.SelectedNode.Tag is Control )
                 {
                     Control Control = tvNodes.SelectedNode.Tag as Control;
-                    return HelpDescription.CreateExactDescription( Control );
+                    return HelpDescriptions.CreateExactDescription( Control );
                 }
 
                 return null;
@@ -243,7 +269,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             try
             {
-                ResourceHelper.SaveHelpDescription( HelpDescription );
+                ResourceHelper.SaveHelpDescription();
                 Close();
             }
             catch ( Exception ex )
