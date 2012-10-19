@@ -146,8 +146,15 @@ namespace Vulcan.Uczniowie.HelpProvider
                 txtCategory.Text = string.Empty;
                 cbNavigator.SelectedItem = HelpNavigator.Topic;
             }
-
-            InitializeContextList( Description );
+            if (ControlHelper.GetBindingContext(Control) == null)
+            {
+                lstContext.Items.Clear();
+                lstContext.Enabled = btAddContext.Enabled = btRemoveContext.Enabled = false;
+            }
+            else
+            {
+                InitializeContextList(Description);
+            }
         }
 
         private void InitializeContextList( ControlHelpDescription Description )
@@ -155,9 +162,9 @@ namespace Vulcan.Uczniowie.HelpProvider
             /* dodatkowy kontekst wi¹zania */
             lstContext.Items.Clear();
 
-            if ( Description != null )
+            if ( Description != null)
             {
-                lstContext.Enabled = btAddContext.Enabled = true;
+                lstContext.Enabled = btAddContext.Enabled = btRemoveContext.Enabled = true;
                 foreach ( BindingContextHelpDescription bc in Description.BindingContext )
                 {
                     ListViewItem li = lstContext.Items.Add( bc.ContextName );
@@ -166,7 +173,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             }
             else
             {
-                lstContext.Enabled = btAddContext.Enabled = false;
+                btAddContext.Enabled = false;
             }
         }
         #endregion
@@ -232,23 +239,31 @@ namespace Vulcan.Uczniowie.HelpProvider
                  tvNodes.SelectedNode.Tag is Control
                 )
             {
-                Control c = tvNodes.SelectedNode.Tag as Control;
+                var c = tvNodes.SelectedNode.Tag as Control;
                 string[] ContextA = ControlHelper.GetBindingContext( c );
-                if ( ContextA.Length > 0 )
+                if (ContextA.Length > 0)
                 {
-                    string Context = ContextA[0];
+                    if(SelectedDescription.BindingContext.All(bc => bc.ContextName != ContextA[0]))
+                    {
+                        string context = ContextA[0];
 
-                    BindingContextHelpDescription bc = new BindingContextHelpDescription();
-                    bc.ContextName = Context;
+                        var bc = new BindingContextHelpDescription();
+                        bc.ContextName = context;
 
-                    SelectedDescription.BindingContext.Add( bc );
-                    InitializeContextList( SelectedDescription );
+                        SelectedDescription.BindingContext.Add(bc);
+                        InitializeContextList(SelectedDescription);
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is already a BindingContext assigned to this control configuration.",
+                                        "Caution", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
-                    MessageBox.Show( "Kontekst dla wskazanego na drzewie formantu jest pusty.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Information );
+                    MessageBox.Show("The context for the specified control tree is empty.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show( "W drzewie formantów nale¿y zaznaczyæ w³aœciwy formant.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Information );
+                MessageBox.Show("W drzewie formantów nale¿y zaznaczyæ w³aœciwy formant.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btRemoveContext_Click( object sender, EventArgs e )

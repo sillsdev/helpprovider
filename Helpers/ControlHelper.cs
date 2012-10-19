@@ -51,7 +51,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             }
             #endregion
 
-            return new string[] { Control.Text };
+            return null;
         }
 
         private static string[] BuildBindingContext( TreeNode treeNode )

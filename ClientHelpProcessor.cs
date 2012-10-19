@@ -31,9 +31,9 @@ namespace Vulcan.Uczniowie.HelpProvider
                     if (  Bc != null && 
                          !string.IsNullOrEmpty( Bc.HelpKeyword ) &&
                           Bc.ShowHelp )
-                        Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), Bc.HelpNavigator, Bc.HelpKeyword );
+                        Help.ShowHelp(Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(HelpControl), Bc.HelpNavigator, Bc.HelpKeyword);
                     else
-                        Help.ShowHelp(Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), TopicDescription.HelpNavigator, TopicDescription.HelpKeyword);
+                        Help.ShowHelp(Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(HelpControl), TopicDescription.HelpNavigator, TopicDescription.HelpKeyword);
                 }
                 else
                     if ( !string.IsNullOrEmpty ( ResourceHelper.HelpDescriptions.PrimaryHelpFile ) )

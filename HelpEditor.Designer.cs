@@ -150,6 +150,7 @@ namespace Vulcan.Uczniowie.HelpProvider
             this.ch1});
             this.lstContext.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstContext.FullRowSelect = true;
+            this.lstContext.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lstContext.Location = new System.Drawing.Point(3, 16);
             this.lstContext.Name = "lstContext";
             this.lstContext.Size = new System.Drawing.Size(202, 244);
@@ -160,8 +161,8 @@ namespace Vulcan.Uczniowie.HelpProvider
             // 
             // ch1
             // 
-            this.ch1.Text = "Text";
-            this.ch1.Width = 63;
+            this.ch1.Text = "Context";
+            this.ch1.Width = 198;
             // 
             // tableLayoutPanel1
             // 
