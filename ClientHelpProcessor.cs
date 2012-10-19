@@ -33,7 +33,6 @@ namespace Vulcan.Uczniowie.HelpProvider
                           Bc.ShowHelp )
                         Help.ShowHelp( Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), Bc.HelpNavigator, Bc.HelpKeyword );
                     else
-                    if ( TopicDescription.ShowHelp )
                         Help.ShowHelp(Control, ResourceHelper.HelpDescriptions.HelpFilePathForControl(Control), TopicDescription.HelpNavigator, TopicDescription.HelpKeyword);
                 }
                 else

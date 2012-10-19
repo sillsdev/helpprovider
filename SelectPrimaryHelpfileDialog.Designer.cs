@@ -1,6 +1,6 @@
 ﻿namespace Vulcan.Uczniowie.HelpProvider
 {
-    partial class SelectHelpfileDialog
+    partial class SelectPrimaryHelpfileDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectHelpfileDialog));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectPrimaryHelpfileDialog));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this._cancelButton = new System.Windows.Forms.Button();
@@ -113,7 +113,7 @@
             this._infoLabel.TabIndex = 3;
             this._infoLabel.Text = resources.GetString("_infoLabel.Text");
             // 
-            // SelectHelpfileDialog
+            // SelectPrimaryHelpfileDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -122,7 +122,7 @@
             this.ClientSize = new System.Drawing.Size(303, 142);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "SelectHelpfileDialog";
+            this.Name = "SelectPrimaryHelpfileDialog";
             this.ShowInTaskbar = false;
             this.Text = "Select help file";
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -17,6 +17,8 @@ namespace Vulcan.Uczniowie.HelpProvider
         private HelpEditor() { }
 
         private readonly GraphicalOverlay _overlay = new GraphicalOverlay();
+        private HelpFileDisplayAdaptor[] _comboBoxItems;
+        private HelpDescriptions HelpDescriptions = ResourceHelper.HelpDescriptions;
 
         public HelpEditor( Control Control )
         {
@@ -31,13 +33,13 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             if (String.IsNullOrEmpty(ResourceHelper.HelpDescriptions.PrimaryHelpFile))
             {
-                using (var deleteDialog = new SelectHelpfileDialog())
+                using (var selectHelpFileDialog = new SelectPrimaryHelpfileDialog())
                 {
-                    var dialogResult = deleteDialog.ShowDialog();
+                    var dialogResult = selectHelpFileDialog.ShowDialog();
 
                     if (dialogResult == DialogResult.OK)
                     {
-                        ResourceHelper.HelpDescriptions.PrimaryHelpFile = deleteDialog.SelectedHelpFile;
+                        HelpDescriptions.PrimaryHelpFile = selectHelpFileDialog.SelectedHelpFile;
                     }
                     else
                     {
@@ -59,10 +61,19 @@ namespace Vulcan.Uczniowie.HelpProvider
             foreach ( HelpNavigator v in Enum.GetValues( typeof( HelpNavigator ) ) )
                 cbNavigator.Items.Add( v );
             cbNavigator.SelectedItem = HelpNavigator.Topic;
-            
-            //once a helpmap is assigned a helpfile it can not be changed.
-            _helpfileNameLabel.Text = ResourceHelper.HelpDescriptions.PrimaryHelpFile;
+
+            _comboBoxItems = HelpDescriptions.AllHelpFiles.Select(
+                     hf => new HelpFileDisplayAdaptor(hf, HelpDescriptions.GetMappingNameForHelpFile(hf))).ToArray();
+            _helpfilesComboBox.Items.AddRange(_comboBoxItems);
+            _helpfilesComboBox.SelectedItem = _helpfilesComboBox.Items[0];
+            _helpfilesComboBox.SelectionChangeCommitted += OnHelpfilesComboBoxSelectionChangeCommitted;
         }
+
+        private void OnHelpfilesComboBoxSelectionChangeCommitted(object sender, EventArgs e)
+        {
+            SaveFormDataToControlHelpDescription();
+        }
+
         #endregion
 
         #region Logika
@@ -108,13 +119,10 @@ namespace Vulcan.Uczniowie.HelpProvider
             }
         }
 
-        private HelpDescriptions HelpDescriptions = ResourceHelper.HelpDescriptions;
-
         private void InitializeDescriptionForContext( BindingContextHelpDescription ContextHelpDescription )
         {
             txtCategory.Text = ContextHelpDescription.HelpKeyword;
             cbNavigator.SelectedItem = ContextHelpDescription.HelpNavigator;
-            cbShowHelp.Checked = ContextHelpDescription.ShowHelp;
         }
         
         private void InitializeDescriptionForControl( Control Control )
@@ -123,22 +131,20 @@ namespace Vulcan.Uczniowie.HelpProvider
             ControlHelpDescription Description = HelpDescriptions.FindExactDescription( Control );
             if ( Description != null )
             {
-                _helpfileNameLabel.Text = HelpDescriptions.HelpFileForControl(Control);
-                gbProperties.Enabled = true;
-                if (HelpDescriptions.HelpFileForControl(Control)!= HelpDescriptions.PrimaryHelpFile)
+                string helpFile = HelpDescriptions.HelpFileForControl(Control);
+                if(!String.IsNullOrEmpty(helpFile))
                 {
-                    gbProperties.Enabled = false;
+                    _helpfilesComboBox.SelectedItem = _comboBoxItems.Single(i => i.HelpFile == helpFile);
                 }
+                gbProperties.Enabled = true;
                 txtCategory.Text = Description.HelpKeyword;
                 cbNavigator.SelectedItem = Description.HelpNavigator;
-                cbShowHelp.Checked = Description.ShowHelp;
             }
             else
             {
-                _helpfileNameLabel.Text = HelpDescriptions.PrimaryHelpFile;
+                _helpfilesComboBox.SelectedItem = _comboBoxItems.Single(i => i.HelpFile == HelpDescriptions.PrimaryHelpFile);
                 txtCategory.Text = string.Empty;
                 cbNavigator.SelectedItem = HelpNavigator.Topic;
-                cbShowHelp.Checked = true;
             }
 
             InitializeContextList( Description );
@@ -169,17 +175,24 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         private void txtCategory_Validated( object sender, EventArgs e )
         {
-            if ( lstContext.SelectedItems.Count > 0 )
+            SaveFormDataToControlHelpDescription();
+        }
+
+        private void SaveFormDataToControlHelpDescription()
+        {
+            if (lstContext.SelectedItems.Count > 0)
             {
                 BindingContextHelpDescription bc = lstContext.SelectedItems[0].Tag as BindingContextHelpDescription;
-                if ( bc != null )
+                if (bc != null)
                     bc.HelpKeyword = txtCategory.Text;
             }
             else
             {
-                if ( SelectedDescription != null )
+                if (SelectedDescription != null)
+                {
                     SelectedDescription.HelpKeyword = txtCategory.Text;
-                SetNodeProperties( tvNodes.SelectedNode );
+                }
+                SetNodeProperties(tvNodes.SelectedNode);
             }
         }
 
@@ -199,22 +212,6 @@ namespace Vulcan.Uczniowie.HelpProvider
             }
         }
 
-        private void cbShowHelp_Validated( object sender, EventArgs e )
-        {
-            if ( lstContext.SelectedItems.Count > 0 )
-            {
-                BindingContextHelpDescription bc = lstContext.SelectedItems[0].Tag as BindingContextHelpDescription;
-                if ( bc != null )
-                    bc.ShowHelp = cbShowHelp.Checked;
-            }
-            else
-            {
-                if ( SelectedDescription != null )
-                    SelectedDescription.ShowHelp = cbShowHelp.Checked;
-                SetNodeProperties( tvNodes.SelectedNode );
-            }
-        }
-
         private ControlHelpDescription SelectedDescription
         {
             get
@@ -222,7 +219,7 @@ namespace Vulcan.Uczniowie.HelpProvider
                 if ( tvNodes.SelectedNode.Tag is Control )
                 {
                     Control Control = tvNodes.SelectedNode.Tag as Control;
-                    return HelpDescriptions.CreateExactDescription( Control );
+                    return HelpDescriptions.CreateExactDescription( Control , ((HelpFileDisplayAdaptor) _helpfilesComboBox.SelectedItem).MappingFile);
                 }
 
                 return null;
@@ -269,7 +266,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             try
             {
-                ResourceHelper.SaveHelpDescription();
+                ResourceHelper.SaveHelpDescriptions();
                 Close();
             }
             catch ( Exception ex )
@@ -326,5 +323,32 @@ namespace Vulcan.Uczniowie.HelpProvider
         }
 
         #endregion
+
+        private class HelpFileDisplayAdaptor
+        {
+            private readonly string _helpFile;
+            private readonly string _mappingFile;
+
+            public HelpFileDisplayAdaptor(string helpFile, string mappingFile)
+            {
+                _helpFile = helpFile;
+                _mappingFile = mappingFile;
+            }
+
+            public string HelpFile
+            {
+                get { return _helpFile; }
+            }
+
+            public string MappingFile
+            {
+                get { return _mappingFile; }
+            }
+
+            public override string ToString()
+            {
+                return String.Format("{0} ({1})", _helpFile, _mappingFile);
+            }
+        }
     }
 }

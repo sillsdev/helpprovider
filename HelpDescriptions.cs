@@ -11,17 +11,17 @@ namespace Vulcan.Uczniowie.HelpProvider
     public class HelpDescriptions
     {
         private readonly HelpDescription _primaryHelpDescription;
-        private readonly List<HelpDescription> _otherDescriptions = new List<HelpDescription>();
+        private readonly List<HelpDescription> _otherHelpDescriptions = new List<HelpDescription>();
 
         public HelpDescriptions(HelpDescription primaryHelpDescription, IEnumerable<HelpDescription> otherHelpMappings)
         {
             _primaryHelpDescription = primaryHelpDescription;
-            _otherDescriptions.AddRange(otherHelpMappings);
+            _otherHelpDescriptions.AddRange(otherHelpMappings);
         }
 
         public bool IsEmpty
         {
-            get { return _primaryHelpDescription.TopicDescription.Count == 0 && _otherDescriptions.Count == 0; }
+            get { return _primaryHelpDescription.TopicDescription.Count == 0 && _otherHelpDescriptions.Count == 0; }
         }
 
         public string PrimaryHelpFile
@@ -39,18 +39,33 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             get 
             { 
-                return _primaryHelpDescription.TopicDescription.Count > 0 || _otherDescriptions.Any(o=>o.TopicDescription.Count > 0);
+                return _primaryHelpDescription.TopicDescription.Count > 0 || _otherHelpDescriptions.Any(o=>o.TopicDescription.Count > 0);
             }
         }
 
         public IEnumerable<string> AllHelpFilePaths
         {
-            get { return new[]{_primaryHelpDescription}.Concat(_otherDescriptions).Select(hd=>hd.HelpFilePath); }
+            get { return AllHelpDescriptions.Select(hd=>hd.HelpFilePath); }
         }
 
-        public ControlHelpDescription CreateExactDescriptionForHelpFile(Control Control)
+        public IEnumerable<string> AllHelpFiles
         {
-            return _primaryHelpDescription.CreateExactDescription(Control);
+            get { return AllHelpDescriptions.Select(hd => hd.HelpFile); }
+        }
+
+        private IEnumerable<HelpDescription> AllHelpDescriptions
+        {
+            get { return new[]{_primaryHelpDescription}.Concat(_otherHelpDescriptions); }
+        }
+
+        public string GetMappingNameForHelpFile(string helpfileName)
+        {
+            return AllHelpDescriptions.SingleOrDefault(hd => hd.HelpFile == helpfileName).MappingFile;
+        }
+
+        public ControlHelpDescription CreateExactDescription(Control Control, string mappingFile)
+        {
+            return AllHelpDescriptions.Single(hd=>hd.MappingFile == mappingFile).CreateExactDescription(Control);
         }
 
         /// <summary>
@@ -64,34 +79,51 @@ namespace Vulcan.Uczniowie.HelpProvider
             var description = _primaryHelpDescription.FindExactDescription(Control);
             if (description == null || String.IsNullOrEmpty(description.HelpKeyword))
             {
-                foreach (var otherDescription in _otherDescriptions)
+                foreach (var otherHelpDescription in _otherHelpDescriptions)
                 {
-                    description = otherDescription.FindExactDescription(Control);
-                    if (description != null)
+                    var otherDescription = otherHelpDescription.FindExactDescription(Control);
+                    if (otherDescription != null && !String.IsNullOrEmpty(otherDescription.HelpKeyword))
                     {
-                        break;
+                        return otherDescription;
                     }
                 }
             }
             return description;
         }
 
+        
+
+        /// <summary>
+        /// Funkcja wyszukuje dok³adny obiekt wi¹¿¹cy formant z zagadnieniem pomocy
+        /// </summary>
+        /// <param name="controlIdParts"></param>
+        /// <returns></returns>
         public ControlHelpDescription FindDescription(string[] controlIdParts)
         {
             //Always prefer descriptions found in the primary helpdescription, otherwise just grab the first description if there even is one
-            var description =_primaryHelpDescription.FindDescription(controlIdParts);
-            if( description == null)
+            var description = _primaryHelpDescription.FindDescription(controlIdParts);
+            if (description == null || String.IsNullOrEmpty(description.HelpKeyword))
             {
-                foreach (var otherDescription in _otherDescriptions)
+                foreach (var otherHelpDescription in _otherHelpDescriptions)
                 {
-                    description = otherDescription.FindDescription(controlIdParts);
-                    if( description != null)
+                    var otherDescription = otherHelpDescription.FindExactDescription(controlIdParts);
+                    if (otherDescription != null && !String.IsNullOrEmpty(otherDescription.HelpKeyword))
                     {
-                        break;
+                        return otherDescription;
                     }
                 }
             }
             return description;
+        }
+
+        /// <summary>
+        /// Funkcja wyszukuje dok³adny obiekt wi¹¿¹cy formant z zagadnieniem pomocy
+        /// </summary>
+        /// <param name="Control"></param>
+        /// <returns></returns>
+        public string GetHelpFileDescription(ControlHelpDescription description)
+        {
+            return AllHelpDescriptions.Single(d => d.TopicDescription.Contains(description)).HelpFile;
         }
 
         /// <summary>
@@ -136,43 +168,40 @@ namespace Vulcan.Uczniowie.HelpProvider
             return null;
         }
 
+        public string HelpFileForControl(Control Control)
+        {
+            return Path.GetFileName(HelpFilePathForControl(Control));
+        }
+
         public string HelpFilePathForControl(Control Control)
         {
             //Always prefer the primary help file, otherwise just grab the first help file that maps the control if there even is one.
-            if(_primaryHelpDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+            var description = _primaryHelpDescription.FindExactDescription(ControlHelper.GetControlIDPath(Control));
+            if (description != null && !String.IsNullOrEmpty(description.HelpKeyword))
             {
                 return _primaryHelpDescription.HelpFilePath;
             }
-            foreach (var otherDescription in _otherDescriptions)
+            foreach (var otherHelpDescription in _otherHelpDescriptions)
             {
-                if (otherDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+                var otherDescription = otherHelpDescription.FindExactDescription(ControlHelper.GetControlIDPath(Control));
+                if ( otherDescription != null && !String.IsNullOrEmpty(otherDescription.HelpKeyword))
                 {
-                    return otherDescription.HelpFilePath;
+                    return otherHelpDescription.HelpFilePath;
                 }
             }
             return "";
         }
 
-        public string HelpFileForControl(Control Control)
+        public void Save()
         {
-            //Always prefer the primary help file, otherwise just grab the first help file that maps the control if there even is one.
-            if (_primaryHelpDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+            foreach (var helpDescription in AllHelpDescriptions)
             {
-                return _primaryHelpDescription.HelpFile;
-            }
-            foreach (var otherDescription in _otherDescriptions)
-            {
-                if (otherDescription.FindDescription(ControlHelper.GetControlIDPath(Control)) != null)
+                using ( FileStream fs = File.Create( Path.Combine(PathHelper.DefaultMappingFolder, helpDescription.MappingFile) ) )
                 {
-                    return otherDescription.HelpFile;
+                    var xs = new XmlSerializer( typeof( HelpDescription ) );
+                    xs.Serialize(fs, helpDescription);
                 }
             }
-            return "";
-        }
-
-        public ControlHelpDescription CreateExactDescription(Control control)
-        {
-            return _primaryHelpDescription.CreateExactDescription(control);
         }
     }
 }

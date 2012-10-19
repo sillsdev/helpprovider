@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -17,6 +18,8 @@ namespace Vulcan.Uczniowie.HelpProvider
         [XmlElement( "Control", typeof( ControlHelpDescription ) )]
         public List<ControlHelpDescription> TopicDescription = new List<ControlHelpDescription>();
 
+        private string _mappingFile;
+
         #region Public properties
         public string HelpFilePath
         {
@@ -28,7 +31,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         #endregion
 
         #region Description
-        public ControlHelpDescription CreateExactDescription( Control Control )
+        public ControlHelpDescription CreateExactDescription( Control Control)
         {
             return CreateExactDescription( ControlHelper.GetControlIDPath( Control ) );
         }
@@ -137,6 +140,23 @@ namespace Vulcan.Uczniowie.HelpProvider
                 return new HelpDescription();
             }
         }
+
+        public string MappingFile
+        {
+            get
+            {
+                return _mappingFile;
+            } 
+            set
+            {
+                if(!String.IsNullOrEmpty(_mappingFile))
+                {
+                    throw new InvalidOperationException("The mapping file can only be set once and should be done immediately after deserialization.");
+                }
+                _mappingFile = value;
+            }
+        }
+
         #endregion
     }
 

@@ -40,7 +40,10 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         private void Form_Resize(object sender, EventArgs e)
         {
-            form.Invalidate(true);
+            if (form != null)
+            {
+                form.Invalidate(true);
+            }
         }
 
         private readonly List<Control> _monitoredControls = new List<Control>();

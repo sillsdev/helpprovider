@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vulcan.Uczniowie.HelpProvider
 {
-    public partial class SelectHelpfileDialog : Form
+    public partial class SelectPrimaryHelpfileDialog : Form
     {
-        public SelectHelpfileDialog()
+        public SelectPrimaryHelpfileDialog()
         {
             InitializeComponent();
             _okButton.Click += OnOkClicked;

@@ -68,22 +68,16 @@ namespace Vulcan.Uczniowie.HelpProvider
                     helpDescription = (HelpDescription)xs.Deserialize(stream);
                     stream.Dispose();
                 }
+                helpDescription.MappingFile = fileToLoad;
             }
             catch { }
             return helpDescription;
         }
 
         #region Zasób z informacj¹ o helpie - builder
-        public static void SaveHelpDescription()
+        public static void SaveHelpDescriptions()
         {
-            if ( HelpDescriptions != null )
-            {
-                using ( FileStream fs = File.Create( PathHelper.WritableHelpmappingPath ) )
-                {
-                    XmlSerializer xs = new XmlSerializer( typeof( HelpDescription ) );
-                    xs.Serialize(fs, _primaryHelpDescription);
-                }
-            }
+            _helpDescriptions.Save();
         }
         #endregion
 
