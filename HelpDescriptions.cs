@@ -50,7 +50,12 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public void RegisterSecondaryHelpMapping(string helpFileMapping)
         {
-            _otherHelpDescriptions.Add(LoadHelpDescriptionFromFile(helpFileMapping));
+            var secondaryHelpDescription = LoadHelpDescriptionFromFile(helpFileMapping);
+            //if we actually found a mapping file then use it
+            if (!string.IsNullOrEmpty(secondaryHelpDescription.HelpFile))
+            {
+                _otherHelpDescriptions.Add(secondaryHelpDescription);
+            }
         }
 
         public bool FoundHelpMapping
