@@ -18,7 +18,7 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         private readonly GraphicalOverlay _overlay = new GraphicalOverlay();
         private HelpFileDisplayAdaptor[] _comboBoxItems;
-        private HelpDescriptions HelpDescriptions = ResourceHelper.HelpDescriptions;
+        private HelpDescriptions HelpDescriptions = HelpDescriptions.Singleton;
 
         public HelpEditor( Control Control )
         {
@@ -31,7 +31,7 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         private void GetHelpfileToUseIfNecessary()
         {
-            if (String.IsNullOrEmpty(ResourceHelper.HelpDescriptions.PrimaryHelpFile))
+            if (String.IsNullOrEmpty(HelpDescriptions.PrimaryHelpFile))
             {
                 using (var selectHelpFileDialog = new SelectPrimaryHelpfileDialog())
                 {
@@ -281,7 +281,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             try
             {
-                ResourceHelper.SaveHelpDescriptions();
+                HelpDescriptions.Singleton.Save();
                 Close();
             }
             catch ( Exception ex )

@@ -71,7 +71,6 @@
     <Compile Include="HelpEditor.Designer.cs">
       <DependentUpon>HelpEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ResourceHelper.cs" />
     <Compile Include="HelpComponent.cs">
       <SubType>Component</SubType>
     </Compile>

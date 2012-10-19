@@ -131,7 +131,7 @@ namespace System.Windows.Forms
     {
         public static Rectangle Coordinates(this Control control)
         {
-            // Extend System.Windows.Forms.Control to have a Coordinates property.
+            // Extend System.Windows.Forms.control to have a Coordinates property.
             // The Coordinates property contains the control's form-relative location.
             Rectangle coordinates;
             Form form = (Form)control.TopLevelControl;

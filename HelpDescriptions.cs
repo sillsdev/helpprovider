@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -10,13 +11,25 @@ namespace Vulcan.Uczniowie.HelpProvider
 {
     public class HelpDescriptions
     {
-        private readonly HelpDescription _primaryHelpDescription;
+        private HelpDescription _primaryHelpDescription;
         private readonly List<HelpDescription> _otherHelpDescriptions = new List<HelpDescription>();
+        private static HelpDescriptions _singleton;
 
-        public HelpDescriptions(HelpDescription primaryHelpDescription, IEnumerable<HelpDescription> otherHelpMappings)
+        public HelpDescriptions(HelpDescription primaryHelpDescription)
         {
             _primaryHelpDescription = primaryHelpDescription;
-            _otherHelpDescriptions.AddRange(otherHelpMappings);
+        }
+        
+        public static HelpDescriptions Singleton
+        {
+            get
+            {
+                if(_singleton == null)
+                {
+                    _singleton = new HelpDescriptions(LoadHelpDescriptionFromFile(PathHelper.FallBackFile));
+                }
+                return _singleton;
+            }
         }
 
         public bool IsEmpty
@@ -26,13 +39,18 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public string PrimaryHelpFile
         {
-            get { return _primaryHelpDescription.HelpFile; }
-            set { _primaryHelpDescription.HelpFile = value; }
+            get { return Singleton._primaryHelpDescription.HelpFile; }
+            set 
+            { _primaryHelpDescription = LoadHelpDescriptionFromFile(value); }
         }
-
         public string PrimaryHelpFilePath
         {
             get { return _primaryHelpDescription.HelpFilePath; }
+        }
+
+        public void RegisterSecondaryHelpMapping(string helpFileMapping)
+        {
+            _otherHelpDescriptions.Add(LoadHelpDescriptionFromFile(helpFileMapping));
         }
 
         public bool FoundHelpMapping
@@ -68,12 +86,17 @@ namespace Vulcan.Uczniowie.HelpProvider
             return AllHelpDescriptions.Single(hd=>hd.MappingFile == mappingFile).CreateExactDescription(Control);
         }
 
+        public ControlHelpDescription FindExactDescription(Control control)
+        {
+            return FindExactDescription(ControlHelper.GetControlIDPath(control));
+        }
+
         /// <summary>
         /// Funkcja wyszukuje dok³adny obiekt wi¹¿¹cy formant z zagadnieniem pomocy
         /// </summary>
         /// <param name="Control"></param>
         /// <returns></returns>
-        public ControlHelpDescription FindExactDescription(Control Control)
+        public ControlHelpDescription FindExactDescription(string[] Control)
         {
             //Always prefer descriptions found in the primary helpdescription, otherwise just grab the first description if there even is one
             var description = _primaryHelpDescription.FindExactDescription(Control);
@@ -91,29 +114,27 @@ namespace Vulcan.Uczniowie.HelpProvider
             return description;
         }
 
-        
-
         /// <summary>
         /// Funkcja wyszukuje dok³adny obiekt wi¹¿¹cy formant z zagadnieniem pomocy
         /// </summary>
         /// <param name="controlIdParts"></param>
         /// <returns></returns>
-        public ControlHelpDescription FindDescription(string[] controlIdParts)
+        public ControlHelpDescription FindDescription(string[] controlPath)
         {
-            //Always prefer descriptions found in the primary helpdescription, otherwise just grab the first description if there even is one
-            var description = _primaryHelpDescription.FindDescription(controlIdParts);
-            if (description == null || String.IsNullOrEmpty(description.HelpKeyword))
+            var controlPathCopy = new List<string>(controlPath);
+            while(controlPathCopy.Count > 0)
             {
-                foreach (var otherHelpDescription in _otherHelpDescriptions)
+                var description = FindExactDescription(controlPathCopy.ToArray());
+                if (description == null || string.IsNullOrEmpty(description.HelpKeyword))
                 {
-                    var otherDescription = otherHelpDescription.FindExactDescription(controlIdParts);
-                    if (otherDescription != null && !String.IsNullOrEmpty(otherDescription.HelpKeyword))
-                    {
-                        return otherDescription;
-                    }
+                    controlPathCopy.RemoveAt(controlPathCopy.Count-1);
+                }
+                else
+                {
+                    return description;
                 }
             }
-            return description;
+            return null;
         }
 
         /// <summary>
@@ -157,9 +178,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             string[] ControlContext = ControlHelper.GetBindingContext(Control);
 
-            if (HelpDescription != null &&
-                 ControlContext.Length > 0
-                )
+            if (HelpDescription != null && ControlContext != null && ControlContext.Length > 0)
                 foreach (string ControlContextContent in ControlContext)
                     foreach (BindingContextHelpDescription bc in HelpDescription.BindingContext)
                         if (bc.ContextName == ControlContextContent)
@@ -203,5 +222,78 @@ namespace Vulcan.Uczniowie.HelpProvider
                 }
             }
         }
+
+        private static HelpDescription LoadHelpDescriptionFromFile(string fileToLoad)
+        {
+
+            var helpDescription = HelpDescription.Empty;
+
+            try
+            {
+                Stream stream = null;
+                // próbuj z pliku przy aplikacji
+                try
+                {
+                    stream = File.Open(Path.Combine(PathHelper.DefaultMappingFolder, fileToLoad), FileMode.Open);
+                }
+                catch { }
+                // próbuj z zasobów
+                if (stream == null)
+                    stream = GetApplicationStream(fileToLoad);
+
+                // serializer
+                XmlSerializer xs = new XmlSerializer(typeof(HelpDescription));
+
+                if (stream != null)
+                {
+                    helpDescription = (HelpDescription)xs.Deserialize(stream);
+                    stream.Dispose();
+                }
+                helpDescription.MappingFile = fileToLoad;
+            }
+            catch { }
+            return helpDescription;
+        }
+
+        #region Zasoby
+        static List<string> examinedAssemblies = new List<string>();
+        private static Stream GetApplicationStream( string ResourceName )
+        {
+            examinedAssemblies.Clear();
+            return GetResource( Assembly.GetEntryAssembly(), ResourceName );
+        }
+        #endregion
+
+        #region Logika
+        private static Stream GetResource( Assembly TheAssembly, string ResourceName )
+        {
+            // szukaj w zasobach bie¿¹cego modu³u
+            foreach ( string resName in TheAssembly.GetManifestResourceNames() )
+                if ( resName.EndsWith( ResourceName ) )
+                    return TheAssembly.GetManifestResourceStream( resName );
+
+            // szukaj w zasobach podmodu³ów
+            foreach ( AssemblyName RefAssembly in TheAssembly.GetReferencedAssemblies() )
+            {
+                if ( !examinedAssemblies.Contains( RefAssembly.FullName ) )
+                {
+                    examinedAssemblies.Add( RefAssembly.FullName );
+                    try
+                    {
+                        Assembly ChildAssembly = Assembly.Load( RefAssembly );
+                        if ( ChildAssembly != null )
+                        {
+                            Stream resStream = GetResource( ChildAssembly, ResourceName );
+                            if ( resStream != null )
+                                return resStream;
+                        }
+                    }
+                    catch { }
+                }
+            }
+
+            return null;
+        }
+        #endregion
     }
 }

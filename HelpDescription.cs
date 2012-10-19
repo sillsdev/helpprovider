@@ -101,38 +101,6 @@ namespace Vulcan.Uczniowie.HelpProvider
             return null;
         }
 
-        /// <summary>
-        /// Funkcja wyszukuje temat pomocy w³aœciwy do pokazania tematu pomocy dla formantu.
-        /// 
-        /// Temat mo¿e dotyczyæ formantu nadrzêdnego, w wypadku braku tematu dok³adnego zwi¹zanego
-        /// z danym formantem.
-        /// </summary>
-        public ControlHelpDescription FindDescription( string[] ControlPath )
-        {
-            return FindDescription( TopicDescription, null, ControlPath );
-        }
-
-        private ControlHelpDescription FindDescription( List<ControlHelpDescription> TopicDescription, ControlHelpDescription LastNonEmpty, string[] ControlPath )
-        {
-            if ( ControlPath.Length > 0 )
-            {
-                foreach ( ControlHelpDescription Description in TopicDescription )
-                    if ( Description.Name == ControlPath[0] )                         
-                    {
-                        if ( !string.IsNullOrEmpty( Description.HelpKeyword ) )
-                            LastNonEmpty = Description;
-
-                        ControlHelpDescription ChildDescription = FindDescription( Description.TopicDescription, LastNonEmpty, (string[])ArrayHelper.CreateSubArray( ControlPath, 1, ControlPath.Length - 1 ) );
-                        if ( ChildDescription != null )
-                            return ChildDescription;
-                        else
-                            return LastNonEmpty; // Description;
-                    }
-            }
-
-            return null;
-        }
-
         public static HelpDescription Empty
         {
             get

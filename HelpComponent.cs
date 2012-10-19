@@ -155,7 +155,7 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public bool FoundHelpMapping
         {
-            get { return ResourceHelper.HelpDescriptions.FoundHelpMapping; }
+            get { return HelpDescriptions.Singleton.FoundHelpMapping; }
         }
 
         public IEnumerable<string> HelpFilePaths
@@ -166,24 +166,18 @@ namespace Vulcan.Uczniowie.HelpProvider
                 {
                     return new List<string>();
                 }
-                return ResourceHelper.HelpDescriptions.AllHelpFilePaths;
+                return HelpDescriptions.Singleton.AllHelpFilePaths;
             }
         }
 
         public void RegisterSecondaryHelpMapping(string helpFileMapping)
         {
-            PathHelper.RegisterSecondaryHelpMapping(helpFileMapping);
+            HelpDescriptions.Singleton.RegisterSecondaryHelpMapping(helpFileMapping);
         }
 
         public void RegisterPrimaryHelpFileMapping(string helpFileMapping)
         {
-            if (ResourceHelper.PrimaryHelpMapAlreadyLoaded)
-            {
-                throw new ArgumentException(String.Format(
-                    "A primary mapping named {0} has already been loaded either from as embedded resource file or from: {1}", 
-                    ResourceHelper.HelpDescriptions.PrimaryHelpFile, ResourceHelper.HelpDescriptions.PrimaryHelpFilePath));
-            }
-            PathHelper.RegisterPrimaryHelpMapping(helpFileMapping);
+            HelpDescriptions.Singleton.PrimaryHelpFile= helpFileMapping;
         }
     }
 }
