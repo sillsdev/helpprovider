@@ -35,7 +35,7 @@
 		<Delete Files="@(ExistingObjectFiles)" />
 	</Target>
 
-	<Target Name="Compile" DependsOnTargets="UnzipMercurial">
+	<Target Name="Compile">
 		<MSBuild
 			Projects="$(RootDir)\$(Solution)"
 			Targets="Build"
