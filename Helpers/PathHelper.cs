@@ -31,7 +31,11 @@ namespace Vulcan.Uczniowie.HelpProvider
 
         public static string DefaultMappingFolder
         {
-            get { return System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); }
+            get
+            {
+                var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                return Path.Combine(myDocuments, "HelpMaps");
+            }
         }
 
         #endregion

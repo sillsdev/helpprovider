@@ -220,7 +220,11 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             foreach (var helpDescription in AllHelpDescriptions)
             {
-                using ( FileStream fs = File.Create( Path.Combine(PathHelper.DefaultMappingFolder, helpDescription.MappingFile) ) )
+                if(!Directory.Exists(PathHelper.DefaultMappingFolder))
+                {
+                    Directory.CreateDirectory(PathHelper.DefaultMappingFolder);
+                }
+                using (FileStream fs = File.Create(Path.Combine(PathHelper.DefaultMappingFolder, helpDescription.MappingFile)))
                 {
                     var xs = new XmlSerializer( typeof( HelpDescription ) );
                     xs.Serialize(fs, helpDescription);
