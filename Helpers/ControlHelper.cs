@@ -18,18 +18,20 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             /* obs³uga szczególnych typów formantów */
 
-            #region TreeView
+            #region ListView
             if ( Control is ListView )
             {
                 ListView l = Control as ListView;
-                if ( l.SelectedItems.Count > 0 &&
-                     l.SelectedItems[0].Tag != null
-                    )
-                    return new string[] { string.Format( "element {0}", l.SelectedItems[0].Tag.GetType().Name ) };
+                if ( !l.VirtualMode && l.SelectedItems.Count > 0 && l.SelectedItems[0].Tag != null)
+                {
+                    return new string[] {string.Format("element {0}", l.SelectedItems[0].Tag.GetType().Name)};
+                }
                 else
                     return new string[] { string.Empty };
             }
+            #endregion
 
+            #region TreeView
             if ( Control is TreeView )
             {
                 TreeView t = Control as TreeView;
