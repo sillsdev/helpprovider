@@ -1,0 +1,2089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script async="" src="Zychla2_files/cbgapi.loaded_1"></script><script async="" src="Zychla2_files/cbgapi.loaded_0"></script><script type="text/javascript">(function() { var a=window,b="jstiming",d="tick";var e=function(c){this.t={};this.tick=function(c,p,h){h=void 0!=h?h:(new Date).getTime();this.t[c]=[h,p]};this[d]("start",null,c)},f=new e;a.jstiming={Timer:e,load:f};if(a.performance&&a.performance.timing){var g=a.performance.timing,j=a[b].load,k=g.navigationStart,l=g.responseStart;0<k&&l>=k&&(j[d]("_wtsrt",void 0,k),j[d]("wtsrt_","_wtsrt",l),j[d]("tbsd_","wtsrt_"))}
+try{var m=null;a.chrome&&a.chrome.csi&&(m=Math.floor(a.chrome.csi().pageT),j&&0<k&&(j[d]("_tbnd",void 0,a.chrome.csi().startE),j[d]("tbnd_","_tbnd",k)));null==m&&a.gtbExternal&&(m=a.gtbExternal.pageT());null==m&&a.external&&(m=a.external.pageT,j&&0<k&&(j[d]("_tbnd",void 0,a.external.startE),j[d]("tbnd_","_tbnd",k)));m&&(a[b].pt=m)}catch(n){};a.tickAboveFold=function(c){var i=0;if(c.offsetParent){do i+=c.offsetTop;while(c=c.offsetParent)}c=i;750>=c&&a[b].load[d]("aft")};var q=!1;function r(){q||(q=!0,a[b].load[d]("firstScrollTime"))}a.addEventListener?a.addEventListener("scroll",r,!1):a.attachEvent("onscroll",r);
+ })();</script>
+<meta content="true" name="MSSmartTagsPreventParsing">
+<meta content="blogger" name="generator">
+<link href="http://netpl.blogspot.com/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Microsoft .NET &amp; C# - Atom" href="http://netpl.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Microsoft .NET &amp; C# - RSS" href="http://netpl.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Microsoft .NET &amp; C# - Atom" href="http://www.blogger.com/feeds/8263949408347549596/posts/default">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=8263949408347549596">
+<link rel="alternate" type="application/atom+xml" title="Microsoft .NET &amp; C# - Atom" href="http://netpl.blogspot.com/feeds/458664264370898232/comments/default">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Microsoft .NET &amp; C#: Context Help Made Easy - Reloaded</title>
+<link type="text/css" rel="stylesheet" href="Zychla2_files/1937454905-widget_css_bundle.css">
+<link type="text/css" rel="stylesheet" href="Zychla2_files/gsearch.css">
+<link type="text/css" rel="stylesheet" href="Zychla2_files/authorization.css">
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Stretch Denim
+Designer: Darren Delaye
+URL:      www.DarrenDelaye.com
+Date:     11 Jul 2006
+-----------------------------------------------
+*/
+/* Variable definitions
+====================
+<Variable name="bgColor" description="Page Background Color"
+type="color" default="#efefef">
+<Variable name="textColor" description="Text Color"
+type="color" default="#333333">
+<Variable name="linkColor" description="Link Color"
+type="color" default="#336699">
+<Variable name="headerBgColor" description="Page Header Background Color"
+type="color" default="#336699">
+<Variable name="headerTextColor" description="Page Header Text Color"
+type="color" default="#ffffff">
+<Variable name="headerCornersColor" description="Page Header Corners Color"
+type="color" default="#528bc5">
+<Variable name="mainBgColor" description="Main Background Color"
+type="color" default="#ffffff">
+<Variable name="borderColor" description="Border Color"
+type="color" default="#cccccc">
+<Variable name="dateHeaderColor" description="Date Header Color"
+type="color" default="#999999">
+<Variable name="sidebarTitleBgColor" description="Sidebar Title Background Color"
+type="color" default="#ffd595">
+<Variable name="sidebarTitleTextColor" description="Sidebar Title Text Color"
+type="color" default="#333333">
+<Variable name="bodyFont" description="Text Font"
+type="font" default="normal normal 100% Verdana, Arial, Sans-serif;">
+<Variable name="headerFont" description="Page Header Font"
+type="font" default="normal normal 210% Verdana, Arial, Sans-serif;">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+body {
+background: #efefef;
+margin: 0;
+padding: 0px;
+font: x-small Verdana, Arial;
+text-align: center;
+color: #333333;
+font-size/* */:/**/small;
+font-size: /**/small;
+}
+a:link {
+color: #336699;
+}
+a:visited {
+color: #336699;
+}
+a img {
+border-width: 0;
+}
+#outer-wrapper {
+font: normal normal 100% Verdana, Arial, Sans-serif;;
+}
+/* Header
+----------------------------------------------- */
+#header-wrapper {
+margin:0;
+padding: 0;
+background-color: #528bc5;
+text-align: left;
+}
+#header {
+margin: 0 2%;
+background-color: #336699;
+color: #ffffff;
+padding: 0;
+font: normal normal 210% Verdana, Arial, Sans-serif;;
+position: relative;
+}
+h1.title {
+padding-top: 38px;
+margin: 0 1% .1em;
+line-height: 1.2em;
+font-size: 100%;
+}
+h1.title a, h1.title a:visited {
+color: #ffffff;
+text-decoration: none;
+}
+#header .description {
+display: block;
+margin: 0 1%;
+padding: 0 0 40px;
+line-height: 1.4em;
+font-size: 50%;
+}
+/* Content
+----------------------------------------------- */
+.clear {
+clear: both;
+}
+#content-wrapper {
+margin: 0 2%;
+padding: 0 0 15px;
+text-align: left;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+border-top: 0;
+}
+#main-wrapper {
+margin-left: 1%;
+width: 64%;
+float: left;
+background-color: #ffffff;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+#sidebar-wrapper {
+margin-right: 1%;
+width: 29%;
+float: right;
+background-color: #ffffff;
+display: inline;       /* fix for doubling margin in IE */
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;      /* fix for long non-text content breaking IE sidebar float */
+}
+/* Headings
+----------------------------------------------- */
+h2, h3 {
+margin: 0;
+}
+/* Posts
+----------------------------------------------- */
+.date-header {
+margin: 1.5em 0 0;
+font-weight: normal;
+color: #999999;
+font-size: 100%;
+}
+.post {
+margin: 0 0 1.5em;
+padding-bottom: 1.5em;
+}
+.post-title {
+margin: 0;
+padding: 0;
+font-size: 125%;
+font-weight: bold;
+line-height: 1.1em;
+}
+.post-title a, .post-title a:visited, .post-title strong {
+text-decoration: none;
+color: #333333;
+font-weight: bold;
+}
+.post div {
+margin: 0 0 .75em;
+line-height: 1.3em;
+}
+.post-footer {
+margin: -.25em 0 0;
+color: #333333;
+font-size: 87%;
+}
+.post-footer .span {
+margin-right: .3em;
+}
+.post img, table.tr-caption-container {
+padding: 4px;
+border: 1px solid #cccccc;
+}
+.tr-caption-container img {
+border: none;
+padding: 0;
+}
+.post blockquote {
+margin: 1em 20px;
+}
+.post blockquote p {
+margin: .75em 0;
+}
+/* Comments
+----------------------------------------------- */
+#comments h4 {
+margin: 1em 0;
+color: #999999;
+}
+#comments h4 strong {
+font-size: 110%;
+}
+#comments-block {
+margin: 1em 0 1.5em;
+line-height: 1.3em;
+}
+#comments-block dt {
+margin: .5em 0;
+}
+#comments-block dd {
+margin: .25em 0 0;
+}
+#comments-block dd.comment-footer {
+margin: -.25em 0 2em;
+line-height: 1.4em;
+font-size: 78%;
+}
+#comments-block dd p {
+margin: 0 0 .75em;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+}
+#blog-pager-newer-link {
+float: left;
+}
+#blog-pager-older-link {
+float: right;
+}
+#blog-pager {
+text-align: center;
+}
+/* Sidebar Content
+----------------------------------------------- */
+.sidebar h2 {
+margin: 1.6em 0 .5em;
+padding: 4px 5px;
+background-color: #ffd595;
+font-size: 100%;
+color: #333333;
+}
+.sidebar ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.sidebar li {
+margin: 0;
+padding-top: 0;
+padding-right: 0;
+padding-bottom: .5em;
+padding-left: 15px;
+text-indent: -15px;
+line-height: 1.5em;
+}
+.sidebar {
+color: #333333;
+line-height:1.3em;
+}
+.sidebar .widget {
+margin-bottom: 1em;
+}
+.sidebar .widget-content {
+margin: 0 5px;
+}
+/* Profile
+----------------------------------------------- */
+.profile-img {
+float: left;
+margin-top: 0;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+padding: 4px;
+border: 1px solid #cccccc;
+}
+.profile-data {
+margin:0;
+text-transform:uppercase;
+letter-spacing:.1em;
+font-weight: bold;
+line-height: 1.6em;
+font-size: 78%;
+}
+.profile-datablock {
+margin:.5em 0 .5em;
+}
+.profile-textblock {
+margin: 0.5em 0;
+line-height: 1.6em;
+}
+/* Footer
+----------------------------------------------- */
+#footer {
+clear: both;
+text-align: center;
+color: #333333;
+}
+#footer .widget {
+margin:.5em;
+padding-top: 20px;
+font-size: 85%;
+line-height: 1.5em;
+text-align: left;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #header {
+width: 750px;
+}
+
+--></style>
+<script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",i="?m=1";function j(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+i;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var k=j();k&&window.location.replace(k)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script src="Zychla2_files/google_top_exp.js" type="text/javascript"></script><style>.gc-bubbleDefault{text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0}</style><link media="screen" href="Zychla2_files/inj_tf.css" rel="stylesheet" type="text/css"><script src="Zychla2_files/a_002" type="text/javascript"></script><link rel="stylesheet" href="Zychla2_files/defaulten.css" type="text/css"><script src="Zychla2_files/defaulten.js" type="text/javascript"></script><script src="Zychla2_files/a" type="text/javascript" charset="utf-8"></script></head>
+<body>
+<div class="navbar section" id="navbar"><div class="widget Navbar" id="Navbar1"><script gapi_processed="true" src="Zychla2_files/plusone.js" async="" type="text/javascript"></script><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe allowtransparency="true" hspace="0" marginheight="0" marginwidth="0" style="" tabindex="0" vspace="0" id="navbar-iframe" name="navbar-iframe" src="Zychla2_files/navbar.htm" frameborder="0" scrolling="no" width="100%"></iframe></div>
+<script gapi_processed="true" type="text/javascript" src="Zychla2_files/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("iframes-styles-bubble", function() {
+          if (window.iframes && iframes.open) {
+            iframes.open(
+                '//www.blogger.com/navbar.g?targetBlogID\758263949408347549596\46blogName\75Microsoft+.NET+%26+C%23\46publishMode\75PUBLISH_MODE_BLOGSPOT\46navbarType\75BLUE\46layoutType\75LAYOUTS\46searchRoot\75http://netpl.blogspot.com/search\46blogLocale\75en_US\46v\0752\46homepageUrl\75http://netpl.blogspot.com/\46targetPostID\075458664264370898232\46blogPostOrPageUrl\75http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html\46vt\75-4918100414899231368',
+                {
+                  container: "navbar-iframe-container",
+                  id: "navbar-iframe"
+                },
+                {
+                });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id="outer-wrapper"><div id="wrap2">
+<!-- skip links for text browsers -->
+<span id="skiplinks" style="display:none;">
+<a href="#main">skip to main </a> |
+      <a href="#sidebar">skip to sidebar</a>
+</span>
+<div id="header-wrapper">
+<div class="header section" id="header"><div class="widget Header" id="Header1">
+<div id="header-inner">
+<div class="titlewrapper">
+<h1 class="title">
+<a href="http://netpl.blogspot.com/">Microsoft .NET &amp; C#</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>Microsoft .NET programming: languages, patterns, technologies, frameworks.</span></p>
+</div>
+</div>
+</div></div>
+</div>
+<div id="content-wrapper">
+<div id="crosscol-wrapper" style="text-align:center">
+<div class="crosscol section" id="crosscol"><div class="widget AdSense" id="AdSense2">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-4880234540156892";
+google_ad_host="pub-1556223355139109";
+google_ad_width=728;
+google_ad_height=90;
+google_ad_format="728x90_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001+S0013+L0005";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="336699";
+google_color_url="999999";
+google_color_text="333333";
+//--></script>
+<script type="text/javascript" src="Zychla2_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="90" scrolling="no" width="728"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=AdSense&amp;widgetId=AdSense2&amp;action=editWidget&amp;sectionId=crosscol" onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense2"));' target="configAdSense2" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div>
+<div id="main-wrapper">
+<div class="main section" id="main"><div id="uds-searchControl"><a name="uds-search-results"></a><div id="uds-searchResults"><div dir="ltr" class="gsc-control"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">This Blog</div><span class="gs-spacer"> </span><div class=" gsc-tabHeader gsc-tabhInactive gsc-inline-block" tabindex="0">Linked From Here</div><span class="gs-spacer"> </span><div class=" gsc-tabHeader gsc-tabhInactive gsc-inline-block" tabindex="0">The Web</div><span class="gs-spacer"> </span></div><div class="gsc-above-wrapper-area-invisible"><table class="gsc-above-wrapper-area-container" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td></tr></tbody></table></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table class="gsc-resultsHeader" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">This Blog</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-more-results-active"><div title="show one result" class="gsc-result-selector gsc-one-result">&nbsp;</div><div title="show more results" class="gsc-result-selector gsc-more-results">&nbsp;</div><div title="show all results" class="gsc-result-selector gsc-all-results">&nbsp;</div></div></td><td class="gsc-configLabelCell"><span title="settings" class="gsc-configLabel gsc-twiddle-closed">&nbsp;</span></td></tr></tbody></table><div style="display: none;" class="gsc-config gsc-blogConfig"><form class="gsc-config gsc-blogConfig"></form></div><div><div class="gsc-expansionArea"></div></div></div><div class="gsc-resultsRoot gsc-tabData gsc-tabdInactive"><table class="gsc-resultsHeader" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Linked From Here</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-more-results-active"><div title="show one result" class="gsc-result-selector gsc-one-result">&nbsp;</div><div title="show more results" class="gsc-result-selector gsc-more-results">&nbsp;</div><div title="show all results" class="gsc-result-selector gsc-all-results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div><div class="gsc-resultsRoot gsc-tabData gsc-tabdInactive"><table class="gsc-resultsHeader" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">The Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-more-results-active"><div title="show one result" class="gsc-result-selector gsc-one-result">&nbsp;</div><div title="show more results" class="gsc-result-selector gsc-more-results">&nbsp;</div><div title="show all results" class="gsc-result-selector gsc-all-results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div style="display: none;" class="gsc-clear-button" id="uds-searchClearResults">&nbsp;</div></div><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Wednesday, August 29, 2007</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<a name="458664264370898232"></a>
+<h3 class="post-title entry-title" itemprop="name">
+Context Help Made Easy - Reloaded
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-458664264370898232" itemprop="description articleBody">
+<h4>Yet another issue</h4> <p>A month ago I've written about context sensitive help. The article can be found <a href="http://netpl.blogspot.com/2007/07/context-help-made-easy-revisited.html">here</a>&nbsp;and please refer to it before further reading.</p> <p>Although
+ the concept works pretty well, there are some obvious drawbacks which 
+apply also to the original concept of Help Providers. What is the 
+drawback?</p> <p>Well, you are allowed to assign <strong>one</strong> and <strong>only one</strong> help topic to a single control.</p> <p>Suppose however that some controls are "<strong>data-polymorphic"</strong> in a sense that they store completely different data in different contexts. Three examples:</p> <ul> <li>trees usually keep different node types at different levels of their hierarchies  </li><li>lists, listviews etc. often show different types of objects when initialized in different contexts  </li><li>some generic forms are initialized with different types of data but behave in the same way each time</li></ul> <p>Every
+ time such situation occurs there is a problem with binding a proper 
+help topic to such control. Ideally, since the context&nbsp;is 
+determined by the data,&nbsp;you would like to have something like 
+that&nbsp;in the application code:</p> <div> <div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">string</span> ProvideHelpTopicForControl( Control TheControl )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>   <span style="color: #0000ff">if</span> ( TheControl == treeViewStructure )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span>      <span style="color: #0000ff">return</span> ProvideHelpTopicForTreeView( treeViewStructure );</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>   <span style="color: #0000ff">if</span> ( TheControl == lstListViewWithItems )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>      <span style="color: #0000ff">return</span> ProvideHelpTopicForListView( lstListViewWithItems );</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span> }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span> ...</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span> <span style="color: #0000ff">string</span> ProvideHelpTopicForTreeView( TreeView Tree )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span> {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>   <span style="color: #0000ff">if</span> ( Tree.SelectedNode != <span style="color: #0000ff">null</span> )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>   {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span>     <span style="color: #0000ff">switch</span> ( Tree.SelectedNode.Text )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  16:</span>     ...</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  17:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  18:</span>     or</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  19:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  20:</span>     <span style="color: #0000ff">switch</span> ( Tree.SelectedNode.GetType().Name )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  21:</span>     ...</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  22:</span>   }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  23:</span>   <span style="color: #0000ff">else</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  24:</span>     <span style="color: #0000ff">return</span> someDefaultMapping;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  25:</span> }</pre></div></div><br><p>(the code is not complete but I hope you get the idea)</p><br><p>While
+ such solution could be perfect for a small application with just few 
+different forms, it could be extremely tedious to implement and maintain
+ it in a complex code.</p><br><p>And of cource, such <strong>hardcoded</strong> mapping would completely ruin the whole idea of moving the topic mapping <strong>out</strong> of the application!</p><br><h4>Solution - additional context binding</h4><br><p>I've
+ spent few hours on thinking of a solution which would just extend the 
+existing idea with features powerful enough to handle such 
+"data-polymorphic" controls.</p><br><p>What I finally came up with can be summarized as follows:</p><br><ul><br><li>each topic mapping gets another set of so-called <strong>binding contexts</strong> (no relation to data-binding!) <br></li><li>each
+ binding context is identified by its name and holds complete 
+description of help topic (including HelpKeyword and HelpNavigator) <br></li><li>when
+ a topic mapping is found for a control (but before the topic is shown 
+to the user), the engine tries to locate a binding context which could 
+be more precise for selected control than the parent topic. If such 
+binding context is found - it is used to show the help topic instead of 
+the parent mapping.</li></ul><br><p>Binding contexts are build in a different way for different types of controls but it is still done <strong>outside</strong>
+ of the application code. In my implementation I handle just few 
+different types of controls and leave the default implementation for 
+other controls (the context is retrieved from the control's text).</p><br><div><br><div style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   1:</span> <span style="color: #0000ff">public</span> <span style="color: #0000ff">static</span> <span style="color: #0000ff">string</span>[] GetBindingContext( Control Control )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   2:</span> {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   3:</span>     <span style="color: #008000">/* obsługa szczególnych typów formantów */</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   4:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   5:</span>     <span style="color: #cc6633">#region</span> TreeView</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   6:</span>     <span style="color: #0000ff">if</span> ( Control <span style="color: #0000ff">is</span> ListView )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   7:</span>     {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">   8:</span>         ListView l = Control <span style="color: #0000ff">as</span> ListView;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">   9:</span>         <span style="color: #0000ff">if</span> ( l.SelectedItems.Count &gt; 0 &amp;&amp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  10:</span>              l.SelectedItems[0].Tag != <span style="color: #0000ff">null</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  11:</span>             )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  12:</span>             <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] </pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  13:</span>             { <span style="color: #0000ff">string</span>.Format( </pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  14:</span>                 <span style="color: #006080">"element {0}"</span>, </pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  15:</span>                 l.SelectedItems[0].Tag.GetType().Name ) };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  16:</span>         <span style="color: #0000ff">else</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  17:</span>             <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] { <span style="color: #0000ff">string</span>.Empty };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  18:</span>     }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  19:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  20:</span>     <span style="color: #0000ff">if</span> ( Control <span style="color: #0000ff">is</span> TreeView )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  21:</span>     {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  22:</span>         TreeView t = Control <span style="color: #0000ff">as</span> TreeView;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  23:</span>         <span style="color: #0000ff">if</span> ( t.SelectedNode != <span style="color: #0000ff">null</span> )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  24:</span>             <span style="color: #0000ff">return</span> BuildBindingContext( t.SelectedNode );</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  25:</span>         <span style="color: #0000ff">else</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  26:</span>             <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] { <span style="color: #0000ff">string</span>.Empty };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  27:</span>     }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  28:</span>     <span style="color: #cc6633">#endregion</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  29:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  30:</span>     <span style="color: #cc6633">#region</span> TabControl</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  31:</span>     <span style="color: #0000ff">if</span> ( Control <span style="color: #0000ff">is</span> TabControl )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  32:</span>     {</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  33:</span>         TabControl tb = Control <span style="color: #0000ff">as</span> TabControl;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  34:</span>         <span style="color: #0000ff">if</span> ( tb.SelectedTab != <span style="color: #0000ff">null</span> )</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  35:</span>             <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] { tb.SelectedTab.Text };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  36:</span>         <span style="color: #0000ff">else</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  37:</span>             <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] { <span style="color: #0000ff">string</span>.Empty };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  38:</span>     }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  39:</span>     <span style="color: #cc6633">#endregion</span></pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  40:</span> &nbsp;</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  41:</span>     <span style="color: #0000ff">return</span> <span style="color: #0000ff">new</span> <span style="color: #0000ff">string</span>[] { Control.Text };</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: #f4f4f4; border-bottom-style: none"><span style="color: #606060">  42:</span> }</pre><pre style="padding-right: 0px; padding-left: 0px; font-size: 8pt; padding-bottom: 0px; margin: 0em; overflow: visible; width: 100%; color: black; border-top-style: none; line-height: 12pt; padding-top: 0px; font-family: consolas, 'Courier New', courier, monospace; border-right-style: none; border-left-style: none; background-color: white; border-bottom-style: none"><span style="color: #606060">  43:</span> &nbsp;</pre></div></div><br><p>So how it works?</p><br><p>Well, suppose the <em>Topic</em> is mapped for the TreeView and additional binding-contexts are defined. One named <strong>Context1</strong> and mapped to <em>Topic1</em> and <strong>Context2</strong> mapped to <em>Topic2.</em></p><br><p>Then, when F1 is pressed for any node <strong>except</strong> for Conext1 and Context2, the <em>Topic</em> is shown. However, when the node's text is Context1, <em>Topic1</em> is shown and when the node's text is Context2, <em>Topic2</em> is shown.</p><br><p>What's
+ more interesting, the case of TreeView imposes that binding-contexts 
+for controls are matched not only by the context name but, when there's 
+no binding-context defined for selected node's text, the engine tries to
+ find a context for selected node's parent, then for it's parent and so 
+on.</p><br><p>This correctly handles a common scenario where a node name
+ is fixed and set from within the code (e.g. Clients) but it's subnodes 
+come from the database and thus their names are dynamic while the 
+mapping expects a static, fixed set of names provided in a mapping file.
+ In this scenario the same context will be assigned to Clients and all 
+its subnodes (assuming that no specific binding context is&nbsp;assigned
+ to subnodes).</p><br><p>There can be arbitrarily many of&nbsp;these additional binding-contexts for a control.&nbsp;</p><br><p>As
+ you can see in above code excerpt, the binding context for a ListView 
+is determined by the item's Tag type but note also that this can be 
+easily adopted to specific needs.</p><br><p>And how is the additional binding-context provided within the <strong>instrumentation </strong>mechanism?</p><br><p>Well, you just provide a topic mapping for the control as usual and then click "+" next to "Context" listbox.</p><br><p><img src="Zychla2_files/helpprovexzv1.jpg"> </p><br><p>The context's name is retrieved <strong>automatically </strong>
+ from the application automatically and you just provide a topic mapping
+ for it. You can also remove a context when it's not required anymore.</p><br><h4>Conclusion</h4><br><p>That's it. The new implementation just extends the former one which means that it should work correctly with <strong>help.mapping</strong>
+ files generated with previous version of the library. When you compile 
+the new source code, you would be able to extend the topic mapping with 
+additional binding-contexts which will further refine the assignment of 
+help topics to application's controls.</p><br><p>Feel free to use the <a href="http://www.ii.uni.wroc.pl/%7Ewzychla/files/HelpProvider2.zip">code</a>&nbsp;without any explicit permission. Leave a comment if you like this approach.</p>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-author vcard">
+Autor:
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="http://www.blogger.com/profile/04420514974154487039" itemprop="url">
+<meta content="8263949408347549596" itemprop="articleBody/aiaBlogId">
+<meta content="458664264370898232" itemprop="articleBody/aiaPostId">
+<a href="http://www.blogger.com/profile/04420514974154487039" rel="author" title="author profile">
+<span itemprop="name">Wiktor Zychla</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+o
+<meta content="http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html" itemprop="url">
+<a class="timestamp-link" href="http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2007-08-29T14:49:00+02:00">2:49 PM</abbr></a>
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-action">
+<a href="http://www.blogger.com/email-post.g?blogID=8263949408347549596&amp;postID=458664264370898232" title="Email Post">
+<img alt="" class="icon-action" src="Zychla2_files/icon18_email.gif" height="13" width="18">
+</a>
+</span>
+<span class="item-control blog-admin pid-145971338">
+<a href="http://www.blogger.com/post-edit.g?blogID=8263949408347549596&amp;postID=458664264370898232&amp;from=pencil" title="Edit Post">
+<img alt="" class="icon-action" src="Zychla2_files/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="http://www.blogger.com/share-post.g?blogID=8263949408347549596&amp;postID=458664264370898232&amp;target=email" target="_blank" title="Email This"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="http://www.blogger.com/share-post.g?blogID=8263949408347549596&amp;postID=458664264370898232&amp;target=blog" onclick='window.open(this.href, "_blank", "height=270,width=475"); return false;' target="_blank" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="http://www.blogger.com/share-post.g?blogID=8263949408347549596&amp;postID=458664264370898232&amp;target=twitter" target="_blank" title="Share to Twitter"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="http://www.blogger.com/share-post.g?blogID=8263949408347549596&amp;postID=458664264370898232&amp;target=facebook" onclick='window.open(this.href, "_blank", "height=430,width=640"); return false;' target="_blank" title="Share to Facebook"><span class="share-button-link-text">Share to Facebook</span></a><div class="goog-inline-block dummy-container"><div id="___plusone_0" style="height: 20px; width: 300px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline;"><iframe title="+1" src="Zychla2_files/fastbutton.htm" name="I0_1351479374905" id="I0_1351479374905" vspace="0" tabindex="0" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" allowtransparency="true" frameborder="0" scrolling="no" width="100%"></iframe></div></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-labels">
+Etykiety:
+<a href="http://netpl.blogspot.com/search/label/Win.Forms" rel="tag">Win.Forms</a>
+</span>
+<span class="reaction-buttons">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td class="reactions-label-cell" nowrap="nowrap" valign="top" width="1%">
+<span class="reactions-label">
+Reakcje:</span>&nbsp;</td>
+<td><iframe allowtransparency="true" class="reactions-iframe" name="reactions" src="Zychla2_files/blog-post-reactions.htm" frameborder="0" scrolling="no"></iframe></td>
+</tr></tbody></table>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"></div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>1 comment:</h4>
+<div id="Blog1_comments-block-wrapper">
+<dl class="avatar-comment-indent" id="comments-block">
+<dt class="comment-author " id="c5755578721758401313">
+<a name="c5755578721758401313"></a>
+<div class="avatar-image-container vcard"><span dir="ltr"><a href="http://www.blogger.com/profile/11928788076056336251" rel="nofollow" onclick="" class="avatar-hovercard" id="av-0-11928788076056336251"><img src="Zychla2_files/Hem252BPadhalni252BPhoto.JPG" alt="" class="delayLoad" style="" longdesc="http://1.bp.blogspot.com/-jsTvi0rBkh8/TsH3Q0HiNNI/AAAAAAAAAA4/XnR0cAzGjqI/s45/Hem%25252BPadhalni%25252BPhoto.JPG" title="Hem Chandra Padhalni" height="35" width="35">
+
+<noscript><img src="http://1.bp.blogspot.com/-jsTvi0rBkh8/TsH3Q0HiNNI/AAAAAAAAAA4/XnR0cAzGjqI/s45/Hem%25252BPadhalni%25252BPhoto.JPG" width="35" height="35" class="photo" alt=""></noscript></a></span></div>
+<a href="http://www.blogger.com/profile/11928788076056336251" rel="nofollow">Hem Chandra Padhalni</a>
+said...
+</dt>
+<dd class="comment-body" id="Blog1_cmt-5755578721758401313">
+<p>
+Nice Article, However Can i use this whole concept of Context sensitive 
+help in WPF applications, if yes what all changes i need to do?
+</p>
+</dd>
+<dd class="comment-footer">
+<span class="comment-timestamp">
+<a href="http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html?showComment=1327306626756#c5755578721758401313" title="comment permalink">
+January 23, 2012 9:17 AM
+</a>
+<span class="item-control blog-admin pid-1766507042">
+<a class="comment-delete" href="http://www.blogger.com/delete-comment.g?blogID=8263949408347549596&amp;postID=5755578721758401313" title="Delete Comment">
+<img src="Zychla2_files/icon_delete13.gif">
+</a>
+</span>
+</span>
+</dd>
+</dl>
+</div>
+<p class="comment-footer">
+<a href="http://www.blogger.com/comment.g?blogID=8263949408347549596&amp;postID=458664264370898232" onclick="">Post a Comment</a>
+</p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container"><a name="links"></a><h4>Linki do tego posta</h4>
+<p class="comment-footer">
+<a class="comment-link" href="http://www.blogger.com/blog-this.g" id="Blog1_backlinks-create-link" target="_blank">Create a Link</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- google_ad_section_end(name=default) -->
+<div class="inline-ad">
+<script type="text/javascript"><!--
+google_ad_client="pub-4880234540156892";
+google_ad_host="pub-1556223355139109";
+google_ad_width=300;
+google_ad_height=250;
+google_ad_format="300x250_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001+S0009+L0007";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="336699";
+google_color_url="999999";
+google_color_text="333333";
+//--></script>
+<script type="text/javascript" src="Zychla2_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins>
+</div>
+<!-- google_ad_section_start -->
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://netpl.blogspot.com/2007/09/query-string-tampering.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://netpl.blogspot.com/2007/07/context-help-made-easy-revisited.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post</a>
+</span>
+<a class="home-link" href="http://netpl.blogspot.com/">Home</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="http://netpl.blogspot.com/feeds/458664264370898232/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en_US'};window.___gapisync = false;(function() {var po = document.createElement('script');po.type = 'text/javascript';po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.body.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script>
+</div></div>
+</div>
+<div id="sidebar-wrapper">
+<div class="sidebar section" id="sidebar"><div class="widget Profile" id="Profile1">
+<h2>About</h2>
+<div class="widget-content">
+<a href="http://www.blogger.com/profile/04420514974154487039"><img alt="My Photo" class="profile-img" src="Zychla2_files/w_photo.jpg" height="80" width="64"></a>
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link" href="http://www.blogger.com/profile/04420514974154487039" rel="author" style="background-image: url(//www.blogger.com/img/logo-16.png);">
+Wiktor Zychla
+</a>
+</dt>
+<dd class="profile-textblock">Software architect and academic lecturer. Microsoft MVP in C# Architecture 2005-2010.</dd>
+</dl>
+<a class="profile-link" href="http://www.blogger.com/profile/04420514974154487039" rel="author">View my complete profile</a>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target="configProfile1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget CustomSearch" id="CustomSearch1">
+<h2 class="title">Search This Blog</h2>
+<div class="widget-content">
+<div id="CustomSearch1_form"><form accept-charset="utf-8" class="gsc-search-box"><table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-input"><input title="search" name="search" class=" gsc-input" size="10" autocomplete="off" type="text"></td><td class="gsc-search-button"><input title="search" class="gsc-search-button" value="Search" type="submit"></td></tr></tbody></table><table class="gsc-branding" cellpadding="0" cellspacing="0"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img-noclear"><img class="gsc-branding-img-noclear" src="Zychla2_files/small-logo.png"></td></tr></tbody></table></form></div>
+</div>
+<style type="text/css">
+      #uds-searchControl .gs-result .gs-title,
+      #uds-searchControl .gs-result .gs-title *,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results,
+      #uds-searchControl .gsc-results .gsc-trailing-more-results * {
+        color:#336699;
+      }
+
+      #uds-searchControl .gs-result .gs-title a:visited,
+      #uds-searchControl .gs-result .gs-title a:visited * {
+        color:#336699;
+      }
+
+      #uds-searchControl .gs-relativePublishedDate,
+      #uds-searchControl .gs-publishedDate {
+        color: #999999;
+      }
+
+      #uds-searchControl .gs-result a.gs-visibleUrl,
+      #uds-searchControl .gs-result .gs-visibleUrl {
+        color: #336699;
+      }
+
+      #uds-searchControl .gsc-results {
+        border-color: #cccccc;
+        background-color: #ffffff;
+      }
+
+      #uds-searchControl .gsc-tabhActive {
+        border-color: #cccccc;
+        border-top-color: #ffd595;
+        background-color: #ffffff;
+        color: #333333;
+      }
+
+      #uds-searchControl .gsc-tabhInactive {
+        border-color: #cccccc;
+        background-color: transparent;
+        color: #336699;
+      }
+
+      #uds-searchClearResults {
+        border-color: #cccccc;
+      }
+
+      #uds-searchClearResults:hover {
+        border-color: #ffd595;
+      }
+
+      #uds-searchControl .gsc-cursor-page {
+        color: #336699;
+      }
+
+      #uds-searchControl .gsc-cursor-current-page {
+        color: #333333;
+      }
+    </style>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=CustomSearch&amp;widgetId=CustomSearch1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("CustomSearch1"));' target="configCustomSearch1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget BlogArchive" id="BlogArchive1">
+<h2>Blog Archive</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2012-01-01T00:00:00%2B01:00&amp;updated-max=2013-01-01T00:00:00%2B01:00&amp;max-results=16">2012</a>
+<span class="post-count" dir="ltr">(16)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2012_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2011-01-01T00:00:00%2B01:00&amp;updated-max=2012-01-01T00:00:00%2B01:00&amp;max-results=26">2011</a>
+<span class="post-count" dir="ltr">(26)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2011_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2010-01-01T00:00:00%2B01:00&amp;updated-max=2011-01-01T00:00:00%2B01:00&amp;max-results=21">2010</a>
+<span class="post-count" dir="ltr">(21)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2010_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2009-01-01T00:00:00%2B01:00&amp;updated-max=2010-01-01T00:00:00%2B01:00&amp;max-results=26">2009</a>
+<span class="post-count" dir="ltr">(26)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2009_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2008-01-01T00:00:00%2B01:00&amp;updated-max=2009-01-01T00:00:00%2B01:00&amp;max-results=39">2008</a>
+<span class="post-count" dir="ltr">(39)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2008_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/search?updated-min=2007-01-01T00:00:00%2B01:00&amp;updated-max=2008-01-01T00:00:00%2B01:00&amp;max-results=18">2007</a>
+<span class="post-count" dir="ltr">(18)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(1)</span>
+<ul class="posts">
+<li><a href="http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html">Context Help Made Easy - Reloaded</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://netpl.blogspot.com/2007_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target="configBlogArchive1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget AdSense" id="AdSense1">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-4880234540156892";
+google_ad_host="pub-1556223355139109";
+google_ad_width=250;
+google_ad_height=250;
+google_ad_format="250x250_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001+S0008+L0001";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="336699";
+google_color_url="336699";
+google_color_text="333333";
+//--></script>
+<script type="text/javascript" src="Zychla2_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px"><iframe allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+='.call';setTimeout(h,0)}else if(h.match){i+='.nav';w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" vspace="0" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="250"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=AdSense&amp;widgetId=AdSense1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense1"));' target="configAdSense1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Label" id="Label1">
+<h2>Labels</h2>
+<div class="widget-content list-label-widget-content">
+<ul>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/ADFS">ADFS</a>
+<span dir="ltr">(8)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/AJAX">AJAX</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/ASP.NET">ASP.NET</a>
+<span dir="ltr">(24)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/C%23">C#</a>
+<span dir="ltr">(6)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/CryptoAPI">CryptoAPI</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/ESB">ESB</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/HTML">HTML</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/IIS">IIS</a>
+<span dir="ltr">(6)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Internet%20Explorer">Internet Explorer</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/LINQ">LINQ</a>
+<span dir="ltr">(7)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/log4net">log4net</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/MVC">MVC</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/NHibernate">NHibernate</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/OLAP">OLAP</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Oracle">Oracle</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Other">Other</a>
+<span dir="ltr">(10)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/PowerShell">PowerShell</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Puzzle">Puzzle</a>
+<span dir="ltr">(22)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Silverlight">Silverlight</a>
+<span dir="ltr">(4)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/SQL%20Server">SQL Server</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/SVN">SVN</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Unity">Unity</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Visual%20Studio">Visual Studio</a>
+<span dir="ltr">(2)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/WCF">WCF</a>
+<span dir="ltr">(3)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/WebServices">WebServices</a>
+<span dir="ltr">(1)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/WIF">WIF</a>
+<span dir="ltr">(10)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/Win.Forms">Win.Forms</a>
+<span dir="ltr">(5)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/XNA">XNA</a>
+<span dir="ltr">(4)</span>
+</li>
+<li>
+<a dir="ltr" href="http://netpl.blogspot.com/search/label/XPO">XPO</a>
+<span dir="ltr">(4)</span>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Label&amp;widgetId=Label1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Label1"));' target="configLabel1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Subscribe" id="Subscribe1">
+<div style="white-space:nowrap">
+<h2 class="title">Subscribe To</h2>
+<div class="widget-content">
+<div class="subscribe-wrapper subscribe-type-POST">
+<div class="subscribe expanded subscribe-type-POST" id="SW_READER_LIST_Subscribe1POST" style="display:none;">
+<div class="top">
+<span class="inner" onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img class="subscribe-dropdown-arrow" src="Zychla2_files/arrow_dropdown.gif">
+<img alt="" class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle" border="0">
+Posts
+</span>
+<div class="feed-reader-links">
+<a class="feed-reader-link" href="http://www.google.com/ig/add?source=bstp&amp;feedurl=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-google.png">
+</a>
+<a class="feed-reader-link" href="http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-netvibes.png">
+</a>
+<a class="feed-reader-link" href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-newsgator.png">
+</a>
+<a class="feed-reader-link" href="http://add.my.yahoo.com/content?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2Fposts%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-yahoo.png">
+</a>
+<a class="feed-reader-link" href="http://netpl.blogspot.com/feeds/posts/default" target="_blank">
+<img class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle">
+                Atom
+              </a>
+</div>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="subscribe" id="SW_READER_LIST_CLOSED_Subscribe1POST" onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<div class="top">
+<span class="inner">
+<img class="subscribe-dropdown-arrow" src="Zychla2_files/arrow_dropdown.gif">
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1POST"));'>
+<img alt="" class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle" border="0">
+Posts
+</span>
+</span>
+</div>
+<div class="bottom"></div>
+</div>
+</div>
+<div class="subscribe-wrapper subscribe-type-PER_POST">
+<div class="subscribe expanded subscribe-type-PER_POST" id="SW_READER_LIST_Subscribe1PER_POST" style="display:none;">
+<div class="top">
+<span class="inner" onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img class="subscribe-dropdown-arrow" src="Zychla2_files/arrow_dropdown.gif">
+<img alt="" class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle" border="0">
+Comments
+</span>
+<div class="feed-reader-links">
+<a class="feed-reader-link" href="http://www.google.com/ig/add?source=bstp&amp;feedurl=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2F458664264370898232%2Fcomments%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-google.png">
+</a>
+<a class="feed-reader-link" href="http://www.netvibes.com/subscribe.php?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2F458664264370898232%2Fcomments%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-netvibes.png">
+</a>
+<a class="feed-reader-link" href="http://www.newsgator.com/ngs/subscriber/subext.aspx?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2F458664264370898232%2Fcomments%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-newsgator.png">
+</a>
+<a class="feed-reader-link" href="http://add.my.yahoo.com/content?url=http%3A%2F%2Fnetpl.blogspot.com%2Ffeeds%2F458664264370898232%2Fcomments%2Fdefault" target="_blank">
+<img src="Zychla2_files/subscribe-yahoo.png">
+</a>
+<a class="feed-reader-link" href="http://netpl.blogspot.com/feeds/458664264370898232/comments/default" target="_blank">
+<img class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle">
+                Atom
+              </a>
+</div>
+</div>
+<div class="bottom"></div>
+</div>
+<div class="subscribe" id="SW_READER_LIST_CLOSED_Subscribe1PER_POST" onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<div class="top">
+<span class="inner">
+<img class="subscribe-dropdown-arrow" src="Zychla2_files/arrow_dropdown.gif">
+<span onclick='return(_SW_toggleReaderList(event, "Subscribe1PER_POST"));'>
+<img alt="" class="feed-icon" src="Zychla2_files/icon_feed12.png" align="absmiddle" border="0">
+Comments
+</span>
+</span>
+</div>
+<div class="bottom"></div>
+</div>
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Subscribe&amp;widgetId=Subscribe1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Subscribe1"));' target="configSubscribe1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Followers" id="Followers1">
+<h2 class="title">Followers</h2>
+<div class="widget-content">
+<div id="Followers1-wrapper">
+<div style="margin-right:2px;">
+<script type="text/javascript">
+        if (!window.google || !google.friendconnect) {
+          document.write('<script type="text/javascript"' +
+              'src="http://www.google.com/friendconnect/script/friendconnect.js">' +
+              '</scr' + 'ipt>');
+        }
+      </script><script type="text/javascript" src="Zychla2_files/friendconnect.js"></script>
+<script type="text/javascript">
+      if (!window.registeredBloggerCallbacks) {
+        window.registeredBloggerCallbacks = true;
+
+        
+
+        
+        gadgets.rpc.register('requestReload', function() {
+          document.location.reload();
+        });
+
+        
+        gadgets.rpc.register('requestSignOut', function(siteId) {
+          
+          google.friendconnect.container.openSocialSiteId = siteId;
+          google.friendconnect.requestSignOut();
+        });
+      }
+    </script>
+<script type="text/javascript">
+    
+    function registerGetBlogUrls() {
+      gadgets.rpc.register('getBlogUrls', function() {
+        var holder = {};
+        
+          
+            
+            
+              holder.currentPost = "http://www.blogger.com/feeds/8263949408347549596/posts/default/458664264370898232";
+            
+            
+            
+              holder.currentComments = "http://www.blogger.com/feeds/8263949408347549596/458664264370898232/comments/default";
+            
+            holder.currentPostUrl = "";
+            holder.currentPostId = 458664264370898232
+          
+          
+          
+            holder.postFeed = "http://www.blogger.com/feeds/8263949408347549596/posts/default";
+          
+          
+          
+            holder.commentFeed = "http://www.blogger.com/feeds/8263949408347549596/comments/default";
+          
+          holder.currentBlogUrl = "http://netpl.blogspot.com/";
+          holder.currentBlogId = "8263949408347549596";
+        
+        return holder;
+      });
+    }
+  </script>
+<script type="text/javascript">
+  if (!window.registeredCommonBloggerCallbacks) {
+    window.registeredCommonBloggerCallbacks = true;
+
+    gadgets.rpc.register('resize_iframe', function(height) {
+      var el = document.getElementById(this['f']);
+      if (el) {
+        el.style.height = height + 'px';
+      }
+    });
+
+    
+    gadgets.rpc.register('set_pref', function() {});
+
+    registerGetBlogUrls();
+  }
+  </script>
+<div class="gadgets-gadget-container" id="div-5viqk82wrswh" style="width: 100%; visibility: visible;"><div id="gfc_iframe_77648289_0_body"><iframe id="gfc_iframe_77648289_0" name="gfc_iframe_77648289_0" style="width: 100%; height: 176px;" allowtransparency="true" frameborder="0" height="260" scrolling="no"></iframe></div></div>
+<script type="text/javascript">
+    var skin = {};
+    skin['FACE_SIZE'] = '32';
+    skin['HEIGHT'] = "260";
+    skin['TITLE'] = "Followers";
+    skin['BORDER_COLOR'] = "transparent";
+    skin['ENDCAP_BG_COLOR'] = "transparent";
+    skin['ENDCAP_TEXT_COLOR'] = "#333333";
+    skin['ENDCAP_LINK_COLOR'] = "#000000";
+    skin['ALTERNATE_BG_COLOR'] = "transparent";
+    
+    skin['CONTENT_BG_COLOR'] = "transparent";
+    skin['CONTENT_LINK_COLOR'] = "#000000";
+    skin['CONTENT_TEXT_COLOR'] = "#333333";
+    skin['CONTENT_SECONDARY_LINK_COLOR'] = "#FFFFFF";
+    skin['CONTENT_SECONDARY_TEXT_COLOR'] = "#000000";
+    skin['CONTENT_HEADLINE_COLOR'] = "#000000";
+    skin['FONT_FACE'] = "normal normal 100% Verdana, Arial, Sans-serif;";
+    google.friendconnect.container.setParentUrl("/");
+    google.friendconnect.container["renderMembersGadget"](
+    {id: "div-5viqk82wrswh",
+     height: 260,
+     
+     
+     
+     site: "11103678060196244037",
+     
+     locale: 'en_US' },
+     skin);
+  </script>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Followers&amp;widgetId=Followers1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target="configFollowers1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogList" id="BlogList1">
+<h2 class="title">My Blog List</h2>
+<div class="widget-content">
+<div class="blog-list-container" id="BlogList1_container">
+<ul id="BlogList1_blogs">
+<li style="display: block;">
+<div class="blog-icon">
+<img alt="" src="Zychla2_files/favicon_003.ico" height="16" width="16">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://ayende.com/blog/" target="_blank">
+Ayende @ Rahien</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://feedproxy.google.com/%7Er/AyendeRahien/%7E3/Kug3E3Yxu94/ravendb-studio-feature-patching" target="_blank">
+RavenDB Studio Feature: Patching</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<input value="http://blogs.msdn.com/favicon.ico" type="hidden">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://blogs.msdn.com/b/bclteam/" target="_blank">
+BCL Team Blog</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://blogs.msdn.com/b/bclteam/archive/2012/10/22/using-async-await-without-net-framework-4-5.aspx" target="_blank">
+Using async/await without .NET Framework 4.5</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<input value="http://blogs.msdn.com/favicon.ico" type="hidden">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://blogs.msdn.com/b/ericlippert/" target="_blank">
+Fabulous Adventures In Coding</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://blogs.msdn.com/b/ericlippert/archive/2012/10/22/a-method-group-of-one.aspx" target="_blank">
+A method group of one</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<img alt="" src="Zychla2_files/favicon_004.ico" height="16" width="16">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://msmvps.com/blogs/jon_skeet/default.aspx" target="_blank">
+Jon Skeet: Coding Blog</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://feedproxy.google.com/%7Er/JonSkeetCodingBlog/%7E3/NYBtwDYJqsE/how-can-i-enumerate-thee-let-me-count-the-ways.aspx" target="_blank">
+How can I enumerate thee? Let me count the ways...</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<img alt="" src="Zychla2_files/favicon_002.ico" height="16" width="16">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://www.hanselman.com/blog/" target="_blank">
+Scott Hanselman</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://feeds.feedblitz.com/%7E/34996516/0/scotthanselman%7ECloudControlled-Remote-Pan-Tilt-Zoom-Camera-API-for-a-Logitech-BCC-Camera-with-Azure-and-SignalR.aspx" target="_blank">
+Cloud-Controlled Remote Pan Tilt Zoom Camera API for a Logitech BCC950 
+Camera with Azure and SignalR</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<img alt="" src="Zychla2_files/favicon.ico" height="16" width="16">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://weblogs.asp.net/scottgu/default.aspx" target="_blank">
+ScottGu's Blog</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://weblogs.asp.net/scottgu/archive/2012/10/25/net-4-5-now-supported-with-windows-azure-web-sites.aspx" target="_blank">
+.NET 4.5 now supported with Windows Azure Web Sites</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+<li style="display: block;">
+<div class="blog-icon">
+<input value="http://blogs.msdn.com/favicon.ico" type="hidden">
+</div>
+<div class="blog-content">
+<div class="blog-title">
+<a href="http://blogs.msdn.com/b/vbertocci/" target="_blank">
+Vibro.NET</a>
+</div>
+<div class="item-content">
+<span class="item-title">
+<a href="http://blogs.msdn.com/b/vbertocci/archive/2012/10/23/windows-identity-foundation-tools-for-visual-studio-2012-rtm.aspx" target="_blank">
+Windows Identity Foundation Tools for Visual Studio 2012 RTM</a>
+</span>
+</div>
+</div>
+<div style="clear: both;"></div>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=BlogList&amp;widgetId=BlogList1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogList1"));' target="configBlogList1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div>
+</div><div class="widget HTML" id="HTML1">
+<h2 class="title">FEEDJIT Live Traffic Feed</h2>
+<div class="widget-content">
+<script src="Zychla2_files/a.js" type="text/javascript"></script><div id="FJ_FL_Cont" style="position: relative; width: 1px; height: 1px; border-width: 0; padding: 0; margin: 0; position: relative;"><div id="FJ_FL_Cover" style="position: absolute; left: 0px; top: 0px; width: 1px; height: 1px; z-index: 2;"></div><object id="FJ_FL_Obj" type="application/x-shockwave-flash" data="Zychla2_files/fj.swf" style="position: absolute; left: 0px; top: 0px; width: 1px; height: 1px; z-index: 1;" height="1" width="1"><param name="wmode" value="transparent"><param name="AllowScriptAccess" value="always"><param name="movie" value="http://feedjit.com/flash/fj.swf"></object></div><div id="FJ_TF_Cont" style="position: relative; padding: 0; margin: 0; border-width: 0px; width: 240px;"><iframe marginheight="0" marginwidth="0" name="FJIframe" src="Zychla2_files/context-help-made-easy-reloaded.htm" style="width: 250px; border-width: 0px; z-index: 1;" frameborder="0" height="792" scrolling="no" width="250"></iframe></div><noscript><a href="http://feedjit.com/">Feedjit Live Blog Stats</a></noscript>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=HTML&amp;widgetId=HTML1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("HTML1"));' target="configHTML1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget Stats" id="Stats1">
+<h2>Total Pageviews</h2>
+<div class="widget-content">
+<div id="Stats1_content" style="">
+<img src="Zychla2_files/chart.png" alt="Sparkline" id="Stats1_sparkline" height="30" width="75">
+<span class="counter-wrapper text-counter-wrapper" id="Stats1_totalCount">236,261</span>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Stats&amp;widgetId=Stats1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Stats1"));' target="configStats1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div>
+</div><div class="widget Image" id="Image1">
+<h2>Buddhabrot</h2>
+<div class="widget-content">
+<a href="http://en.wikipedia.org/wiki/Buddhabrot">
+<img style="visibility: visible;" alt="Buddhabrot" id="Image1_img" src="Zychla2_files/sample10.jpg" height="214" width="194">
+</a>
+<br>
+<span class="caption">Beauty of fractals</span>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=8263949408347549596&amp;widgetType=Image&amp;widgetId=Image1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Image1"));' target="configImage1" title="Edit">
+<img alt="" src="Zychla2_files/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+<!-- spacer for skins that want sidebar and main to be the same height-->
+<div class="clear">&nbsp;</div>
+</div>
+<!-- end content-wrapper -->
+<div id="footer-wrapper">
+<div class="footer section" id="footer"></div>
+</div>
+</div></div>
+<!-- end outer-wrapper -->
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="Zychla2_files/3453915823-widgets.js"></script>
+<script type="text/javascript" src="Zychla2_files/jsapi"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '8263949408347549596';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8263949408347549596','//netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html','8263949408347549596');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8263949408347549596', 'bloggerUrl': 'http://www.blogger.com', 'title': 'Microsoft .NET \46amp; C#', 'pageType': 'item', 'url': 'http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html', 'canonicalUrl': 'http://netpl.blogspot.com/2007/08/context-help-made-easy-reloaded.html', 'canonicalHomepageUrl': 'http://netpl.blogspot.com/', 'homepageUrl': 'http://netpl.blogspot.com/', 'blogspotFaviconUrl': 'http://netpl.blogspot.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Context Help Made Easy - Reloaded', 'pageTitle': 'Microsoft .NET \46amp; C#: Context Help Made Easy - Reloaded', 'encoding': 'UTF-8', 'locale': 'en-US', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Microsoft .NET \46amp; C# - Atom\42 href\75\42http://netpl.blogspot.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Microsoft .NET \46amp; C# - RSS\42 href\75\42http://netpl.blogspot.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Microsoft .NET \46amp; C# - Atom\42 href\75\42http://www.blogger.com/feeds/8263949408347549596/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\758263949408347549596\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Microsoft .NET \46amp; C# - Atom\42 href\75\42http://netpl.blogspot.com/feeds/458664264370898232/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'imageSrcTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var a\75window,b\75\42jstiming\42,d\75\42tick\42;var e\75function(c){this.t\75{};this.tick\75function(c,p,h){h\75void 0!\75h?h:(new Date).getTime();this.t[c]\75[h,p]};this[d](\42start\42,null,c)},f\75new e;a.jstiming\75{Timer:e,load:f};if(a.performance\46\46a.performance.timing){var g\75a.performance.timing,j\75a[b].load,k\75g.navigationStart,l\75g.responseStart;0\74k\46\46l\76\75k\46\46(j[d](\42_wtsrt\42,void 0,k),j[d](\42wtsrt_\42,\42_wtsrt\42,l),j[d](\42tbsd_\42,\42wtsrt_\42))}\ntry{var m\75null;a.chrome\46\46a.chrome.csi\46\46(m\75Math.floor(a.chrome.csi().pageT),j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.chrome.csi().startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));null\75\75m\46\46a.gtbExternal\46\46(m\75a.gtbExternal.pageT());null\75\75m\46\46a.external\46\46(m\75a.external.pageT,j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.external.startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));m\46\46(a[b].pt\75m)}catch(n){};a.tickAboveFold\75function(c){var i\0750;if(c.offsetParent){do i+\75c.offsetTop;while(c\75c.offsetParent)}c\75i;750\76\75c\46\46a[b].load[d](\42aft\42)};var q\75!1;function r(){q||(q\75!0,a[b].load[d](\42firstScrollTime\42))}a.addEventListener?a.addEventListener(\42scroll\42,r,!1):a.attachEvent(\42onscroll\42,r);\n })();\74/script\076', 'mobileHeadScript': '', 'adsenseClientId': 'pub-4880234540156892', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/2179ec63bcf35660'}}, {'name': 'skin', 'data': {'vars': {'textColor': '#333333', 'linkColor': '#336699', 'borderColor': '#cccccc', 'headerTextColor': '#ffffff', 'mainBgColor': '#ffffff', 'sidebarTitleTextColor': '#333333', 'bgColor': '#efefef', 'headerCornersColor': '#528bc5', 'headerFont': 'normal normal 210% Verdana, Arial, Sans-serif;', 'sidebarTitleBgColor': '#ffd595', 'bodyFont': 'normal normal 100% Verdana, Arial, Sans-serif;', 'dateHeaderColor': '#999999', 'endSide': 'right', 'startSide': 'left', 'headerBgColor': '#336699'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense2', 'crosscol', null, document.getElementById('AdSense2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_CustomSearchView', new _WidgetInfo('CustomSearch1', 'sidebar', null, document.getElementById('CustomSearch1'), {'title': 'Search This Blog', 'includeBlog': true, 'includePostLinks': true, 'includeWeb': true, 'linkLists': [], 'blogUrl': 'http://netpl.blogspot.com/', 'loadingMsg': 'Loading...', 'thisBlogMsg': 'This Blog', 'linkedFromHereMsg': 'Linked From Here', 'theWebMsg': 'The Web', 'backgroundColor': '#ffffff', 'textColor': '#333333', 'dateColor': '#999999', 'linkColor': '#336699', 'urlColor': '#336699', 'visitedLinkColor': '#336699', 'borderColor': '#cccccc', 'activeBorderColor': '#ffd595'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'sidebar', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar', null, document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_SubscribeView', new _WidgetInfo('Subscribe1', 'sidebar', null, document.getElementById('Subscribe1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar', null, document.getElementById('Followers1'), {'title': 'Followers', 'codeSnippet': '\74script type\75\42text/javascript\42\76\n        if (!window.google || !google.friendconnect) {\n          document.write(\47\74script type\75\42text/javascript\42\47 +\n              \47src\75\42http://www.google.com/friendconnect/script/friendconnect.js\42\76\47 +\n              \47\74/scr\47 + \47ipt\76\47);\n        }\n      \74/script\76\n\74script type\75\42text/javascript\42\76\n      if (!window.registeredBloggerCallbacks) {\n        window.registeredBloggerCallbacks \75 true;\n\n        \n\n        \n        gadgets.rpc.register(\47requestReload\47, function() {\n          document.location.reload();\n        });\n\n        \n        gadgets.rpc.register(\47requestSignOut\47, function(siteId) {\n          \n          google.friendconnect.container.openSocialSiteId \75 siteId;\n          google.friendconnect.requestSignOut();\n        });\n      }\n    \74/script\76\n\74script type\75\42text/javascript\42\76\n    \n    function registerGetBlogUrls() {\n      gadgets.rpc.register(\47getBlogUrls\47, function() {\n        var holder \75 {};\n        \n          \n            \n            \n              holder.currentPost \75 \42http://www.blogger.com/feeds/8263949408347549596/posts/default/458664264370898232\42;\n            \n            \n            \n              holder.currentComments \75 \42http://www.blogger.com/feeds/8263949408347549596/458664264370898232/comments/default\42;\n            \n            holder.currentPostUrl \75 \42\42;\n            holder.currentPostId \75 458664264370898232\n          \n          \n          \n            holder.postFeed \75 \42http://www.blogger.com/feeds/8263949408347549596/posts/default\42;\n          \n          \n          \n            holder.commentFeed \75 \42http://www.blogger.com/feeds/8263949408347549596/comments/default\42;\n          \n          holder.currentBlogUrl \75 \42http://netpl.blogspot.com/\42;\n          holder.currentBlogId \75 \428263949408347549596\42;\n        \n        return holder;\n      });\n    }\n  \74/script\76\n\74script type\75\42text/javascript\42\76\n  if (!window.registeredCommonBloggerCallbacks) {\n    window.registeredCommonBloggerCallbacks \75 true;\n\n    gadgets.rpc.register(\47resize_iframe\47, function(height) {\n      var el \75 document.getElementById(this[\47f\47]);\n      if (el) {\n        el.style.height \75 height + \47px\47;\n      }\n    });\n\n    \n    gadgets.rpc.register(\47set_pref\47, function() {});\n\n    registerGetBlogUrls();\n  }\n  \74/script\76\n\74div id\75\42div-jsv38lod07im\42 style\75\42width: 100%; \42\76\74/div\76\n\74script type\75\42text/javascript\42\76\n    var skin \75 {};\n    skin[\47FACE_SIZE\47] \75 \04732\47;\n    skin[\47HEIGHT\47] \75 \042260\42;\n    skin[\47TITLE\47] \75 \42Followers\42;\n    skin[\47BORDER_COLOR\47] \75 \42transparent\42;\n    skin[\47ENDCAP_BG_COLOR\47] \75 \42transparent\42;\n    skin[\47ENDCAP_TEXT_COLOR\47] \75 \42#333333\42;\n    skin[\47ENDCAP_LINK_COLOR\47] \75 \42#000000\42;\n    skin[\47ALTERNATE_BG_COLOR\47] \75 \42transparent\42;\n    \n    skin[\47CONTENT_BG_COLOR\47] \75 \42transparent\42;\n    skin[\47CONTENT_LINK_COLOR\47] \75 \42#000000\42;\n    skin[\47CONTENT_TEXT_COLOR\47] \75 \42#333333\42;\n    skin[\47CONTENT_SECONDARY_LINK_COLOR\47] \75 \42#FFFFFF\42;\n    skin[\47CONTENT_SECONDARY_TEXT_COLOR\47] \75 \42#000000\42;\n    skin[\47CONTENT_HEADLINE_COLOR\47] \75 \42#000000\42;\n    skin[\47FONT_FACE\47] \75 \42normal normal 100% Verdana, Arial, Sans-serif;\42;\n    google.friendconnect.container.setParentUrl(\42/\42);\n    google.friendconnect.container[\42renderMembersGadget\42](\n    {id: \42div-jsv38lod07im\42,\n     height: 260,\n     \n     \n     \n     site: \04211103678060196244037\42,\n     \n     locale: \47en_US\47 },\n     skin);\n  \74/script\076'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogListView', new _WidgetInfo('BlogList1', 'sidebar', null, document.getElementById('BlogList1'), {'numItemsToShow': 0, 'totalItems': 7}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_StatsView', new _WidgetInfo('Stats1', 'sidebar', null, document.getElementById('Stats1'), {'title': 'Total Pageviews', 'showGraphicalCounter': false, 'showAnimatedCounter': false, 'showSparkline': true, 'statsUrl': '//netpl.blogspot.com/b/stats?style\75BLACK_TRANSPARENT\46timeRange\75ALL_TIME\46token\75Xh8qrDoBAAA.rNsz8Kh5HLcItgccAkxu9v7eC5Hv78Wjoxr3idFebXg.KIw-6VTNQ6IO6Ympec9DnQ'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ImageView', new _WidgetInfo('Image1', 'sidebar', null, document.getElementById('Image1'), {'resize': true}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '458664264370898232', 'lightboxEnabled': true, 'lightboxModuleUrl': '//www.blogger.com/static/v1/jsbin/2585605517-lbx.js', 'lightboxCssUrl': '//www.blogger.com/static/v1/v-css/228702327-lightbox_bundle.css'}, 'displayModeFull'));
+</script>
+
+</body></html>
