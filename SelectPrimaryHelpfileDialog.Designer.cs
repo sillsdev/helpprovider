@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(271, 127);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(271, 179);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -67,7 +67,7 @@
             this.tableLayoutPanel2.Controls.Add(this._cancelButton, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this._okButton, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 95);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 147);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -98,7 +98,7 @@
             this._helpfileComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this._helpfileComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._helpfileComboBox.FormattingEnabled = true;
-            this._helpfileComboBox.Location = new System.Drawing.Point(3, 68);
+            this._helpfileComboBox.Location = new System.Drawing.Point(3, 120);
             this._helpfileComboBox.Name = "_helpfileComboBox";
             this._helpfileComboBox.Size = new System.Drawing.Size(265, 21);
             this._helpfileComboBox.TabIndex = 2;
@@ -109,7 +109,7 @@
             this._infoLabel.Location = new System.Drawing.Point(3, 0);
             this._infoLabel.MaximumSize = new System.Drawing.Size(265, 0);
             this._infoLabel.Name = "_infoLabel";
-            this._infoLabel.Size = new System.Drawing.Size(265, 65);
+            this._infoLabel.Size = new System.Drawing.Size(262, 117);
             this._infoLabel.TabIndex = 3;
             this._infoLabel.Text = resources.GetString("_infoLabel.Text");
             // 
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(303, 142);
+            this.ClientSize = new System.Drawing.Size(299, 205);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SelectPrimaryHelpfileDialog";
