@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -19,7 +20,9 @@ namespace Vulcan.Uczniowie.HelpProvider
 
 		public HelpComponent(System.ComponentModel.IContainer container)
 		{
-			container.Add(this);
+            container.Add(this); 
+            container.Add(this);
+            HelpDescriptions.Singleton.LoadHelpMapBasedOnAssemblyInfoIfPossible(Assembly.GetCallingAssembly());
 			InitializeComponent();
 		}
 

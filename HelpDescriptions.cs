@@ -15,7 +15,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         private readonly List<HelpDescription> _otherHelpDescriptions = new List<HelpDescription>();
         private static HelpDescriptions _singleton;
 
-        public HelpDescriptions(HelpDescription primaryHelpDescription)
+        private HelpDescriptions(HelpDescription primaryHelpDescription)
         {
             _primaryHelpDescription = primaryHelpDescription;
         }
@@ -52,7 +52,7 @@ namespace Vulcan.Uczniowie.HelpProvider
         {
             var secondaryHelpDescription = LoadHelpDescriptionFromFile(helpFileMapping);
             //if we actually found a mapping file then use it
-            if (!string.IsNullOrEmpty(secondaryHelpDescription.HelpFile))
+            if (!string.IsNullOrEmpty(secondaryHelpDescription.HelpFile) && _otherHelpDescriptions.All(hd => hd.HelpFile != secondaryHelpDescription.HelpFile))
             {
                 _otherHelpDescriptions.Add(secondaryHelpDescription);
             }
@@ -304,5 +304,15 @@ namespace Vulcan.Uczniowie.HelpProvider
             return null;
         }
         #endregion
+
+        public void LoadHelpMapBasedOnAssemblyInfoIfPossible(Assembly callingAssembly)
+        {
+            var attributes = callingAssembly.GetCustomAttributes(typeof(AssemblyHelpMapFileNameAttribute), false);
+            if (attributes.Length != 0)
+            {
+                var helpMap = ((AssemblyHelpMapFileNameAttribute)attributes[0]).HelpMapFileName;
+                RegisterSecondaryHelpMapping(helpMap);
+            }
+        }
     }
 }

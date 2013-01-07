@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyHelpMapFileNameAttribute.cs" />
     <Compile Include="BuilderHelpProcessor.cs" />
     <Compile Include="ClientHelpProcessor.cs" />
     <Compile Include="GraphicalOverlay.cs" />
