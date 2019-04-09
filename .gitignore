@@ -1,4 +1,3 @@
-syntax: glob
 *.cache
 *.pdb
 output
@@ -20,9 +19,9 @@ config
 *.orig
 *.mdb
 nant.resx.bak
-glob:lib/*.Tests.dll
-glob:desktop.ini
-glob:Mercurial
-glob:build/old
-glob:lib/$(Configuration)
+lib/*.Tests.dll
+desktop.ini
+Mercurial/
+build/old
+lib/$(Configuration)
 test-results
