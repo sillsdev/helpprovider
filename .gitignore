@@ -25,3 +25,4 @@ Mercurial/
 build/old
 lib/$(Configuration)
 test-results
+.idea/
