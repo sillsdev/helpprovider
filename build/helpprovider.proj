@@ -1,0 +1,27 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build;Pack">
+	<PropertyGroup>
+		<RootDir Condition="'$(teamcity_build_checkoutDir)' == '' And '$(RootDir)'==''">$(MSBuildProjectDirectory)/..</RootDir>
+		<RootDir Condition="'$(teamcity_build_checkoutDir)' != ''">$(teamcity_build_checkoutDir)</RootDir>
+		<Solution>Vulcan.Uczniowie.HelpProvider.sln</Solution>
+		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
+		<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ExistingObjectFiles Include="$(RootDir)/**/obj/**/*;$(RootDir)/output/**/*" Exclude="$(RootDir)/.git/**/*" />
+	</ItemGroup>
+
+	<Target Name="Build" DependsOnTargets="Clean;Compile"/>
+
+	<Target Name="Clean">
+		<Delete Files="@(ExistingObjectFiles)" />
+	</Target>
+
+	<Target Name="Compile">
+		<MSBuild Projects="$(SolutionPath)" Targets="Restore;Build" Properties="Configuration=$(Configuration)" />
+	</Target>
+
+	<Target Name="Pack">
+		<MSBuild Projects="$(SolutionPath)" Targets="Pack" Properties="Configuration=$(Configuration)" />
+	</Target>
+</Project>
