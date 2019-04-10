@@ -1,8 +1,8 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build;Pack">
 	<PropertyGroup>
 		<RootDir Condition="'$(teamcity_build_checkoutDir)' == '' And '$(RootDir)'==''">$(MSBuildProjectDirectory)/..</RootDir>
 		<RootDir Condition="'$(teamcity_build_checkoutDir)' != ''">$(teamcity_build_checkoutDir)</RootDir>
-		<Solution>Vulcan.Uczniowie.HelpProvider.sln</Solution>
+		<Solution>Vulcan.Uczniowie.HelpProvider.csproj</Solution>
 		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
 		<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 	</PropertyGroup>
