@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<RootDir Condition="'$(teamcity_build_checkoutDir)' == '' And '$(RootDir)'==''">$(MSBuildProjectDirectory)/..</RootDir>
 		<RootDir Condition="'$(teamcity_build_checkoutDir)' != ''">$(teamcity_build_checkoutDir)</RootDir>
-		<Solution>Vulcan.Uczniowie.HelpProvider.csproj</Solution>
+		<Solution>Vulcan.Uczniowie.HelpProvider.sln</Solution>
 		<SolutionPath>$(RootDir)/$(Solution)</SolutionPath>
 		<Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 	</PropertyGroup>
@@ -18,10 +18,10 @@
 	</Target>
 
 	<Target Name="Compile">
-		<MSBuild Projects="$(SolutionPath)" Targets="Restore;Build" Properties="Configuration=$(Configuration)" />
+		<MSBuild Projects="$(SolutionPath)" Targets="Restore;Rebuild" Properties="Configuration=$(Configuration)" />
 	</Target>
 
 	<Target Name="Pack">
-		<MSBuild Projects="$(SolutionPath)" Targets="Pack" Properties="Configuration=$(Configuration)" />
+		<MSBuild Projects="$(RootDir)/Vulcan.Uczniowie.HelpProvider.csproj" Targets="Pack" Properties="Configuration=$(Configuration)" />
 	</Target>
 </Project>

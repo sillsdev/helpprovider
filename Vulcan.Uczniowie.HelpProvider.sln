@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulcan.Uczniowie.HelpProvider", "Vulcan.Uczniowie.HelpProvider.csproj", "{0830F3BC-9563-471C-90B6-9D447B056E1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcan.Uczniowie.HelpProvider-Designer", "Vulcan.Uczniowie.HelpProvider-Designer.csproj", "{0830F3BC-9563-471C-90B6-9D447B056E1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcan.Uczniowie.HelpProvider-Designer", "Vulcan.Uczniowie.HelpProvider-Designer.csproj", "{5429FA9C-0747-4446-B0D4-4E83A8D7B7CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D22BD731-1EAF-40DA-8174-6DDB0AFA7700}"
 ProjectSection(SolutionItems) = preProject
