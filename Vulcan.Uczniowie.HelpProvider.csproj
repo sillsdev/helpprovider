@@ -32,7 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="licenses\LICENSE.md" Pack="true" PackagePath=""/>
+    <None Include="LICENSE.md" Pack="true" PackagePath="">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
