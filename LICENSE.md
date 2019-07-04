@@ -6,11 +6,11 @@ This License governs Your use of the Work. This License is intended to allow dev
 
 The main points subject to the terms of the License are:
 
--   Source Code and Executable Files can be used in commercial applications;
--   Source Code and Executable Files can be redistributed; and
--   Source Code can be modified to create derivative works.
--   No claim of suitability, guarantee, or any warranty whatsoever is provided. The software is provided "as-is".
--   The Article(s) accompanying the Work may not be distributed or republished without the Author's consent
+- Source Code and Executable Files can be used in commercial applications;
+- Source Code and Executable Files can be redistributed; and
+- Source Code can be modified to create derivative works.
+- No claim of suitability, guarantee, or any warranty whatsoever is provided. The software is provided "as-is".
+- The Article(s) accompanying the Work may not be distributed or republished without the Author's consent
 
 This License is entered between You, the individual or other entity reading or otherwise making use of the Work licensed pursuant to this License and the individual or other entity which offers the Work under the terms of this License ("Author").
 
