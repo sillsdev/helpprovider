@@ -9,7 +9,7 @@
     <Authors>Tom Clement, Wiktor Zychla</Authors>
     <Product>HelpProvider</Product>
     <Copyright>Copyright © 2007-2019 Tom Clement, Wiktor Zychla, SIL International</Copyright>
-    <PackageLicenseExpression>CPOL-1.02</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/sillsdev/helpprovider</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <OutputPath>output/$(Configuration)</OutputPath>
@@ -29,6 +29,10 @@
     <PackageReference Include="SIL.ReleaseTasks" Version="[2.2.0,)">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
