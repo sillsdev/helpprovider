@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.16] - 2020-06-12
+
+### Changed
+
+- Increased version number to be larger then our pre-nuget packages
+
 ## [1.0.1] - 2019-07-04
 
 ### Added
